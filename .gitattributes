@@ -1,0 +1,9 @@
+# 统一按 LF 入库 / 检出，避免 Windows 贡献者写入 CRLF
+# 造成整份文档在 diff 里显示「全文已修改」。
+* text=auto eol=lf
+
+*.md   text diff=markdown eol=lf
+*.py   text eol=lf
+*.png  binary
+*.jpg  binary
+*.pdf  binary
