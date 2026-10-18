@@ -49,14 +49,14 @@ python scripts/init-progress.py
 ```
 LearnAgentDevCN
 ├── 00-curriculum-overview.md        学习路径总纲（从这里开始看）
-├── 01-stage-0-model-api/            阶段 0 · 模型调用与参数原理（唯一已开课）
+├── 01-stage-0-model-api/            阶段 0 · 模型调用与参数原理
 │   ├── 00-c0-llm-fundamentals/      C0 · 大模型工作原理速成（前置课）
 │   ├── 01-c1-call-parameters/       C1 · 大模型调用参数与原理
 │   ├── 02-c2-kv-cache/              C2 · KV Cache 机制与上下文复用
 │   ├── 03-c3-tokenization-cost/     C3 · Token、分词与成本模型
 │   ├── 04-c4-streaming-structured-output/   C4 · 流式输出与结构化输出
 │   └── 05-c5-reliability/           C5 · 稳定性：错误、重试、限流与降级
-├── 02…07-stage-*.md                 阶段 1–6（大纲占位，正文未开课）
+├── 02…07-stage-*.md                 阶段 1–6（仅大纲）
 ├── 08-review-course-health-check.md 全课程体检
 ├── progress.template.md             进度模板
 ├── scripts/init-progress.py         进度自举脚本
