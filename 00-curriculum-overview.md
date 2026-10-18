@@ -1,11 +1,11 @@
 # 00 · 学习路径总纲
 > 这份文档是
 > 总纲
-> ：它不教知识，只回答三个问题 —— 学到哪了、下一课是什么、为什么是这个顺序。每开一门新课，这里的进度与课程地图会同步更新。
+> ：它不教知识，只回答三个问题 —— 课程地图长什么样、下一课是什么、为什么是这个顺序。每开一门新课，这里的课程地图会同步更新；**你个人学到哪了，记在 progress.md，不写在这里**。
 
 ## 1. 怎么用这份总纲
 
-- 入口在第 3 节「课程地图」：找状态为「未开始」的第一课，直接点链接进去读。
+- 入口在第 3 节「课程地图」：从阶段 0 开始，按顺序一门门读下去；读完一篇就在 progress.md 勾一篇。
 - 每篇按 8–15 分钟设计，正好一趟地铁；超过这个长度的篇目会在开头标注「建议分两次读」。
 - 每门课最后一篇是「速查表 + 自测」。回程做自测，比再读一遍有用得多。
 - 顺序可以跳：标了「可跳」的课不影响后续理解，读不下去就先过，别卡在原地。
@@ -20,17 +20,17 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 3. 路径总览
 
-- **阶段 0 · 模型调用与参数原理**｜进行中（C1 已读完，C2 在读；C3–C5 已开课；C0 为后补前置课） → 产出：一次带工具调用的对话
-- **阶段 1 · Prompt 与上下文工程**｜下一步 → 产出：一套可复用的 system prompt 模板 + 上下文裁剪策略
-- **阶段 2 · Agent 最小闭环**｜未开始 → 产出：手写一个 100 行以内的 ReAct 循环
-- **阶段 3 · 记忆与状态**｜未开始 → 产出：会话记忆 + 长期记忆检索跑通
-- **阶段 4 · 多 Agent 与编排**｜未开始 → 产出：一个可拆任务、可并行的小型多 Agent 系统
-- **阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**｜未开始 → 产出：全链路 trace + 一个回归评测集
-- **阶段 6 · 实战项目**｜未开始 → 产出：3 个能放进作品集的项目
+- **阶段 0 · 模型调用与参数原理**｜已开课 → 产出：一次带工具调用的对话
+- **阶段 1 · Prompt 与上下文工程**｜未开课 → 产出：一套可复用的 system prompt 模板 + 上下文裁剪策略
+- **阶段 2 · Agent 最小闭环**｜未开课 → 产出：手写一个 100 行以内的 ReAct 循环
+- **阶段 3 · 记忆与状态**｜未开课 → 产出：会话记忆 + 长期记忆检索跑通
+- **阶段 4 · 多 Agent 与编排**｜未开课 → 产出：一个可拆任务、可并行的小型多 Agent 系统
+- **阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**｜未开课 → 产出：全链路 trace + 一个回归评测集
+- **阶段 6 · 实战项目**｜未开课 → 产出：3 个能放进作品集的项目
 
 **阶段直达**（未开课的阶段点进去看大纲、计划课程与出口标准）：
 
-- [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 进行中：6 门课 / 27 篇
+- [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 已开课：6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context.md) — 未开课：计划 3 门课
 - [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop.md) — 未开课：计划 3 门课
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state.md) — 未开课：计划 3 门课
@@ -40,11 +40,11 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已开 1 个阶段 / 6 门课 / 27 篇正文（另含 6 篇课程索引）。进度：C1 已读完；C2 在读；C0 新开；C3–C5 未开始。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已开 1 个阶段 / 6 门课 / 27 篇正文（另含 6 篇课程索引）。
 
-**阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时 · 状态：进行中（C1 已读完，C2 在读）
+**阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时 · 状态：已开课
 
-**C0 · 大模型工作原理速成（前置课）**— 5 篇 · 每篇 10–15 分钟 · 未开始 → [打开课程](01-stage-0-model-api/00-c0-llm-fundamentals/README.md)
+**C0 · 大模型工作原理速成（前置课）**— 5 篇 · 每篇 10–15 分钟 → [打开课程](01-stage-0-model-api/00-c0-llm-fundamentals/README.md)
 
 - [C0-1 大模型到底在做什么](01-stage-0-model-api/00-c0-llm-fundamentals/01-what-llm-actually-does.md)
 - [C0-2 Token 与向量：模型只认数字](01-stage-0-model-api/00-c0-llm-fundamentals/02-token-and-vector.md)
@@ -54,7 +54,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 **读书顺序提示**：C0 在 C1 之前。完全不懂模型原理的话先读它；已经懂 Q / K / V 和注意力的话可以直接跳过，但读 C2 前必须过 C0-4。
 
-**C1 · 大模型调用参数与原理**— 5 篇 · 每篇 8–15 分钟 · 已完成 → [打开课程](01-stage-0-model-api/01-c1-call-parameters/README.md)
+**C1 · 大模型调用参数与原理**— 5 篇 · 每篇 8–15 分钟 → [打开课程](01-stage-0-model-api/01-c1-call-parameters/README.md)
 
 - [C1-1 课程导览与参数全景图](01-stage-0-model-api/01-c1-call-parameters/01-parameter-map.md)
 - [C1-2 采样参数：temperature 与 top_p 的原理](01-stage-0-model-api/01-c1-call-parameters/02-sampling-temperature-top-p.md)
@@ -62,7 +62,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C1-4 Agent 核心参数：tools / tool_choice / response_format](01-stage-0-model-api/01-c1-call-parameters/04-agent-core-parameters.md)
 - [C1-5 速查表与自测题](01-stage-0-model-api/01-c1-call-parameters/05-cheatsheet-and-quiz.md)
 
-**C2 · KV Cache 机制与 Agent 上下文复用**— 5 篇 · 每篇 10–15 分钟 · 在读 · 可跳 → [打开课程](01-stage-0-model-api/02-c2-kv-cache/README.md)
+**C2 · KV Cache 机制与 Agent 上下文复用**— 5 篇 · 每篇 10–15 分钟 · 可跳 → [打开课程](01-stage-0-model-api/02-c2-kv-cache/README.md)
 
 - [C2-1 为什么需要 KV Cache](01-stage-0-model-api/02-c2-kv-cache/01-why-kv-cache.md)
 - [C2-2 KV Cache 原理：Q / K / V](01-stage-0-model-api/02-c2-kv-cache/02-kv-cache-mechanics.md)
@@ -70,21 +70,21 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C2-4 压缩与优化：GQA / MLA / PagedAttention / 量化](01-stage-0-model-api/02-c2-kv-cache/04-gqa-mla-pagedattention.md)
 - [C2-5 Agent 实战：如何利用 KV Cache](01-stage-0-model-api/02-c2-kv-cache/05-agent-practice-kv-cache.md)
 
-**C3 · Token、分词与成本模型**— 4 篇 · 每篇 10–13 分钟 · 未开始 → [打开课程](01-stage-0-model-api/03-c3-tokenization-cost/README.md)
+**C3 · Token、分词与成本模型**— 4 篇 · 每篇 10–13 分钟 → [打开课程](01-stage-0-model-api/03-c3-tokenization-cost/README.md)
 
 - [C3-1 Token 与分词：BPE 直觉与 6 个坑](01-stage-0-model-api/03-c3-tokenization-cost/01-bpe-tokenization-pitfalls.md)
 - [C3-2 怎么数 token：工具、误差与估算公式](01-stage-0-model-api/03-c3-tokenization-cost/02-counting-tokens.md)
 - [C3-3 成本结构：一次调用的钱花在哪](01-stage-0-model-api/03-c3-tokenization-cost/03-cost-breakdown.md)
 - [C3-4 上下文预算表、降本优先级与自测](01-stage-0-model-api/03-c3-tokenization-cost/04-context-budget-and-quiz.md)
 
-**C4 · 流式输出与结构化输出**— 4 篇 · 每篇约 12 分钟 · 未开始 → [打开课程](01-stage-0-model-api/04-c4-streaming-structured-output/README.md)
+**C4 · 流式输出与结构化输出**— 4 篇 · 每篇约 12 分钟 → [打开课程](01-stage-0-model-api/04-c4-streaming-structured-output/README.md)
 
 - [C4-1 流式输出：SSE 协议与增量解析](01-stage-0-model-api/04-c4-streaming-structured-output/01-sse-streaming.md)
 - [C4-2 工具调用的流式拼接](01-stage-0-model-api/04-c4-streaming-structured-output/02-streaming-tool-calls.md)
 - [C4-3 结构化输出：JSON Schema 与 strict 模式](01-stage-0-model-api/04-c4-streaming-structured-output/03-json-schema-strict.md)
 - [C4-4 解析容错、失败恢复与自测](01-stage-0-model-api/04-c4-streaming-structured-output/04-parsing-fallback-and-quiz.md)
 
-**C5 · 稳定性：错误、重试、限流与降级**— 4 篇 · 每篇 11–15 分钟 · 未开始 → [打开课程](01-stage-0-model-api/05-c5-reliability/README.md)
+**C5 · 稳定性：错误、重试、限流与降级**— 4 篇 · 每篇 11–15 分钟 → [打开课程](01-stage-0-model-api/05-c5-reliability/README.md)
 
 - [C5-1 错误全景：状态码与可重试性](01-stage-0-model-api/05-c5-reliability/01-error-taxonomy.md)
 - [C5-2 重试策略：退避、jitter 与幂等](01-stage-0-model-api/05-c5-reliability/02-retry-backoff-idempotency.md)
@@ -103,7 +103,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 6. 各阶段详细大纲
 
-## 阶段 0 · 模型调用与参数原理（C1 已读完，C2 在读；C0、C3–C5 未读）
+## 阶段 0 · 模型调用与参数原理
 
 - C1-1 一次调用的完整生命周期 + 参数全景图
 - C1-2 采样参数：temperature / top_p / top_k / seed / penalty
@@ -181,19 +181,17 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 开阶段 1 · Prompt 与上下文工程，第一篇讲 system prompt 的结构化写法。
 
-- 先补完阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C1 已读完；C2 在读，未读完不影响后面几课，可随时回头补。
+- 先补完阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C2 是理论课，未读完不影响后面几课，可随时回头补。
 - 想直接推进 → 从阶段 1 开始，等开课。
 
 ---
 
-v2 · 2026-09-09 更新：补入 C2 课程地图与进度状态；移除 mermaid 图与四列表格，改为手机端友好的列表排版；新增第三条暗线「上下文预算」；标明阶段 1.4 与 C2 的衔接关系。
+v2 · 2026-09-09 更新：补入 C2 课程地图；移除 mermaid 图与四列表格，改为手机端友好的列表排版；新增第三条暗线「上下文预算」；标明阶段 1.4 与 C2 的衔接关系。
 
-v3 · 2026-09-09 更新：阶段 0 补齐 C3（Token 与成本）、C4（流式与结构化输出）、C5（稳定性工程）三门共 12 篇；记录 C1 已读完的进度；C5-4 提供参数速查大表与调用层自检清单。
+v3 · 2026-09-09 更新：阶段 0 补齐 C3（Token 与成本）、C4（流式与结构化输出）、C5（稳定性工程）三门共 12 篇；C5-4 提供参数速查大表与调用层自检清单。
 
 v4 · 2026-09-09 更新：目录重排为「阶段 → 课程 → 单篇」三层，C1–C5 全部归入「阶段 0 · 模型调用与参数原理」文件夹（原链接均保持有效）；明确 C 编号全局连续，阶段 1 从 C6 起。
 
 v5 · 2026-09-09 更新：建全全部 7 个阶段文件夹（阶段 0–6），每个阶段页含大纲、计划课程、出口标准与阶段间依赖；总纲新增「阶段直达」入口。
 
 v6 · 2026-09-10 更新：新增**C0 · 大模型工作原理速成**（5 篇）作为 C1 / C2 的原理前置，解决「直接用 logits / Q K V 却从未解释」的问题；在 C2-1、C2-2、C1-1 开头加入前置提示与回顾；阶段 0 扩为 6 门课 / 27 篇。
-
-v7 · 2026-09-10 更新：修正进度记录 —— C2 状态由「已读完」改为「在读」。
