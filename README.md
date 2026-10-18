@@ -1,6 +1,6 @@
 # 大模型与 Agent 开发学习
 
-一套自学的 **Agent 开发课程库**，共 43 篇 Markdown，按 **阶段 → 课程 → 单篇** 三层组织。
+一套自学的 **Agent 开发课程库**，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–2 共 54 篇正文（另含 12 篇课程索引）。
 目标：**系统掌握 Agent 开发**；大模型理论只学「够用」的那一层。
 主场景：手机端通勤阅读，每篇 8–15 分钟。
 
@@ -28,7 +28,7 @@ python scripts/init-progress.py
 
 | 文件 | 入库？ | 作用 |
 |---|---|---|
-| `progress.template.md` | ✅ 入库 | 43 篇的空勾选骨架，所有人共享同一份 |
+| `progress.template.md` | ✅ 入库 | 54 篇正文的空勾选骨架，所有人共享同一份 |
 | `progress.md` | ❌ 本地私有 | 你的真实进度，来自模板的一次性复制 |
 
 **第一次一定要跑 `scripts/init-progress.py`**——clone 下来是没有 `progress.md` 的，
@@ -56,7 +56,15 @@ LearnAgentDevCN
 │   ├── 03-c3-tokenization-cost/     C3 · Token、分词与成本模型
 │   ├── 04-c4-streaming-structured-output/   C4 · 流式输出与结构化输出
 │   └── 05-c5-reliability/           C5 · 稳定性：错误、重试、限流与降级
-├── 02…07-stage-*.md                 阶段 1–6（仅大纲）
+├── 02-stage-1-prompt-context/       阶段 1 · Prompt 与上下文工程
+│   ├── 00-c6-system-prompt-patterns/   C6 · System Prompt 工程与提示词模式
+│   ├── 01-c7-context-management/       C7 · 上下文管理与压缩
+│   └── 02-c8-prompt-security/          C8 · 提示词安全与注入防御
+├── 03-stage-2-minimal-agent-loop/   阶段 2 · Agent 最小闭环
+│   ├── 00-c9-tool-calling-react/       C9 · 工具调用协议与 ReAct 手写
+│   ├── 01-c10-tool-design/             C10 · 工具设计：粒度、描述与参数校验
+│   └── 02-c11-agent-failure-recovery/  C11 · Agent 失效模式与恢复
+├── 04…07-stage-*.md                 阶段 3–6（仅大纲）
 ├── 08-review-course-health-check.md 全课程体检
 ├── progress.template.md             进度模板
 ├── scripts/init-progress.py         进度自举脚本

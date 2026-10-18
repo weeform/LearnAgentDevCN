@@ -31,8 +31,8 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 **阶段直达**（仅大纲的阶段点进去看计划课程与出口标准）：
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
-- [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context.md) — 仅大纲：计划 3 门课
-- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop.md) — 仅大纲：计划 3 门课
+- [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
+- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 3 门课 / 14 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state.md) — 仅大纲：计划 3 门课
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration.md) — 仅大纲：计划 3 门课
 - [阶段 5 · 工程化](06-stage-5-production-engineering.md) — 仅大纲：计划 4 门课（5.1 建议提前）
@@ -40,7 +40,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。阶段 0 已整理为 6 门课 / 27 篇正文（另含 6 篇课程索引）。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（3 门课 / 14 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -91,7 +91,56 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C5-3 限流、并发、超时与降级](01-stage-0-model-api/05-c5-reliability/03-ratelimit-concurrency-degradation.md)
 - [C5-4 阶段 0 总复习：速查表、交付物与综合自测](01-stage-0-model-api/05-c5-reliability/04-stage-0-review-and-quiz.md)
 
-目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起，这样「C3」永远只指一门课，不会重名。
+**阶段 1 · Prompt 与上下文工程**— 3 门课 / 13 篇 · 约 2.5–3.5 小时
+
+**C6 · System Prompt 工程与提示词模式**— 5 篇 · 每篇 8–15 分钟 → [打开课程](02-stage-1-prompt-context/00-c6-system-prompt-patterns/README.md)
+
+- [C6-1 五段式模板](02-stage-1-prompt-context/00-c6-system-prompt-patterns/01-system-prompt-five-part.md)
+- [C6-2 约束 > 角色](02-stage-1-prompt-context/00-c6-system-prompt-patterns/02-constraints-over-persona.md)
+- [C6-3 少样本 / 思维链 / 自一致性](02-stage-1-prompt-context/00-c6-system-prompt-patterns/03-few-shot-cot-self-consistency.md)
+- [C6-4 CoT 的反例与提示词模式清单](02-stage-1-prompt-context/00-c6-system-prompt-patterns/04-cot-pitfalls-and-pattern-library.md)
+- [C6-5 速查表与自测](02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-cheatsheet-and-quiz.md)
+
+**C7 · 上下文管理与压缩**— 4 篇 · 每篇 10–15 分钟 → [打开课程](02-stage-1-prompt-context/01-c7-context-management/README.md)
+
+- [C7-1 上下文预算](02-stage-1-prompt-context/01-c7-context-management/01-context-budget.md)
+- [C7-2 裁剪与 KV Cache](02-stage-1-prompt-context/01-c7-context-management/02-truncation-and-kv-cache.md)
+- [C7-3 摘要与压缩](02-stage-1-prompt-context/01-c7-context-management/03-summarization-and-compression.md)
+- [C7-4 上下文装配与裁剪策略](02-stage-1-prompt-context/01-c7-context-management/04-context-assembly-and-quiz.md)
+
+**C8 · 提示词安全与注入防御**— 4 篇 · 每篇 8–12 分钟 → [打开课程](02-stage-1-prompt-context/02-c8-prompt-security/README.md)
+
+- [C8-1 注入全景](02-stage-1-prompt-context/02-c8-prompt-security/01-injection-taxonomy.md)
+- [C8-2 间接注入防御](02-stage-1-prompt-context/02-c8-prompt-security/02-indirect-injection-defense.md)
+- [C8-3 防御清单](02-stage-1-prompt-context/02-c8-prompt-security/03-defense-checklist.md)
+- [C8-4 速查与自测](02-stage-1-prompt-context/02-c8-prompt-security/04-cheatsheet-and-quiz.md)
+
+**阶段 2 · Agent 最小闭环**— 3 门课 / 14 篇 · 约 3–4 小时（含动手）
+
+**C9 · 工具调用协议与 ReAct 手写**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/README.md)
+
+- [C9-1 工具调用协议细节](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/01-tool-calling-protocol-detail.md)
+- [C9-2 ReAct 三段式](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/02-react-loop-anatomy.md)
+- [C9-3 手写 100 行 ReAct](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/03-react-implementation.md)
+- [C9-4 循环终止条件](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/04-loop-termination.md)
+- [C9-5 速查表与自测](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/05-cheatsheet-and-quiz.md)
+
+**C10 · 工具设计：粒度、描述与参数校验**— 4 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/01-c10-tool-design/README.md)
+
+- [C10-1 工具粒度](03-stage-2-minimal-agent-loop/01-c10-tool-design/01-tool-granularity.md)
+- [C10-2 命名与描述](03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md)
+- [C10-3 参数校验](03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md)
+- [C10-4 设计清单与自测](03-stage-2-minimal-agent-loop/01-c10-tool-design/04-cheatsheet-and-quiz.md)
+
+**C11 · Agent 失效模式与恢复**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/README.md)
+
+- [C11-1 失效模式全景](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/01-failure-taxonomy.md)
+- [C11-2 错误回传与自我修正](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/02-error-feedback-self-correction.md)
+- [C11-3 步数 / 死循环 / 超时](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/03-loop-guard-deadlock-timeout.md)
+- [C11-4 什么时候不该用 Agent](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/04-when-not-to-use-agent.md)
+- [C11-5 阶段 2 总复习与自测](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/05-stage-2-review-and-quiz.md)
+
+目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C12 起，这样「C3」永远只指一门课，不会重名。
 
 ## 5. 依赖关系
 
@@ -115,25 +164,22 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - C4-1 ~ C4-4 流式输出与结构化输出（回答「怎么可靠地拿到结果」）
 - C5-1 ~ C5-4 稳定性：错误、重试、限流与降级（回答「失败了怎么办」，含阶段 0 总复习）
 
-### 阶段 1 · Prompt 与上下文工程（下一步）
+### 阶段 1 · Prompt 与上下文工程（已有正文）
 
-→ [进入阶段 1](02-stage-1-prompt-context.md) — 仅大纲，可先看计划；这是下一个补正文的阶段
+→ [进入阶段 1](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
 
-- 1.1 system prompt 的结构化写法（角色 / 目标 / 约束 / 输出格式 / 示例）
-- 1.2 少样本、思维链、自一致性：什么时候值得用，成本如何
-- 1.3 结构化输出：JSON Schema 约束解码 vs 提示词约束
-- 1.4 上下文管理：窗口、裁剪、压缩、摘要（缓存与 KV Cache 原理见 C2）
-- 1.5 提示词注入与防御
+- C6 System Prompt 工程与提示词模式（覆盖 1.1 五段式模板、1.2 少样本/思维链/自一致性）
+- C7 上下文管理与压缩（覆盖 1.4 窗口、裁剪、压缩、摘要）
+- C8 提示词安全与注入防御（覆盖 1.5 注入与防御）
+- 1.3 结构化输出进阶 已在阶段 0 的 C4 完整覆盖，不单开课程
 
-### 阶段 2 · Agent 最小闭环
+### 阶段 2 · Agent 最小闭环（已有正文）
 
-→ [进入阶段 2](03-stage-2-minimal-agent-loop.md) — 仅大纲
+→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 3 门课 / 14 篇
 
-- 2.1 Function Calling / Tool Use 协议细节
-- 2.2 ReAct 循环手写实现（Thought / Action / Observation）
-- 2.3 工具设计原则：粒度、命名、描述、参数校验
-- 2.4 失败恢复：重试、报错回传、最大步数、死循环检测
-- 2.5 什么时候不该用 Agent
+- C9 工具调用协议与 ReAct 手写（覆盖 2.1 协议细节、2.2 ReAct 循环）
+- C10 工具设计：粒度、描述与参数校验（覆盖 2.3）
+- C11 Agent 失效模式与恢复（覆盖 2.4 失败恢复、2.5 何时不该用 Agent）
 
 ### 阶段 3 · 记忆与状态
 
@@ -179,10 +225,11 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 8. 下一步
 
-下一阶段是阶段 1 · Prompt 与上下文工程，第一篇讲 system prompt 的结构化写法。
+阶段 0、1、2 已有正文。按顺序推进：
 
-- 先补完阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C2 是理论课，未读完不影响后面几课，可随时回头补。
-- 想直接推进 → 从阶段 1 开始（当前仅大纲）。
+- 学完阶段 0 → 进阶段 1（Prompt 与上下文工程）。
+- 学完阶段 2 → 进阶段 3（记忆与状态，当前仅大纲）。
+- 想先补阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C2 是理论课，未读完不影响后面几课，可随时回头补。
 
 ---
 
@@ -195,3 +242,5 @@ v4 · 2026-09-09 更新：目录重排为「阶段 → 课程 → 单篇」三�
 v5 · 2026-09-09 更新：建全全部 7 个阶段文件夹（阶段 0–6），每个阶段页含大纲、计划课程、出口标准与阶段间依赖；总纲新增「阶段直达」入口。
 
 v6 · 2026-09-10 更新：新增**C0 · 大模型工作原理速成**（5 篇）作为 C1 / C2 的原理前置，解决「直接用 logits / Q K V 却从未解释」的问题；在 C2-1、C2-2、C1-1 开头加入前置提示与回顾；阶段 0 扩为 6 门课 / 27 篇。
+
+v7 · 2026-10-18 更新：阶段 1、2 补全正文——阶段 1（C6–C8 共 13 篇）、阶段 2（C9–C11 共 14 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。

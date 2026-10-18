@@ -90,12 +90,67 @@
 
 ---
 
+## 阶段 1 · Prompt 与上下文工程
+
+> 出口标准见 `02-stage-1-prompt-context/README.md`：一套 system prompt 模板 + 上下文裁剪策略 + 注入防御清单。
+
+### C6 · System Prompt 工程与提示词模式 ⬜ 未开始
+
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/01-system-prompt-five-part.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/02-constraints-over-persona.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/03-few-shot-cot-self-consistency.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/04-cot-pitfalls-and-pattern-library.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-cheatsheet-and-quiz.md`
+
+### C7 · 上下文管理与压缩 ⬜ 未开始
+
+- [ ] `02-stage-1-prompt-context/01-c7-context-management/01-context-budget.md`
+- [ ] `02-stage-1-prompt-context/01-c7-context-management/02-truncation-and-kv-cache.md`
+- [ ] `02-stage-1-prompt-context/01-c7-context-management/03-summarization-and-compression.md`
+- [ ] `02-stage-1-prompt-context/01-c7-context-management/04-context-assembly-and-quiz.md`
+
+### C8 · 提示词安全与注入防御 ⬜ 未开始
+
+- [ ] `02-stage-1-prompt-context/02-c8-prompt-security/01-injection-taxonomy.md`
+- [ ] `02-stage-1-prompt-context/02-c8-prompt-security/02-indirect-injection-defense.md`
+- [ ] `02-stage-1-prompt-context/02-c8-prompt-security/03-defense-checklist.md`
+- [ ] `02-stage-1-prompt-context/02-c8-prompt-security/04-cheatsheet-and-quiz.md`
+
+---
+
+## 阶段 2 · Agent 最小闭环
+
+> 出口标准见 `03-stage-2-minimal-agent-loop/README.md`：手写 100 行 ReAct + 3 工具 + trace + 失败复盘。
+
+### C9 · 工具调用协议与 ReAct 手写 ⬜ 未开始
+
+- [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/01-tool-calling-protocol-detail.md`
+- [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/02-react-loop-anatomy.md`
+- [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/03-react-implementation.md`
+- [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/04-loop-termination.md`
+- [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/05-cheatsheet-and-quiz.md`
+
+### C10 · 工具设计：粒度、描述与参数校验 ⬜ 未开始
+
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/01-tool-granularity.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/04-cheatsheet-and-quiz.md`
+
+### C11 · Agent 失效模式与恢复 ⬜ 未开始
+
+- [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/01-failure-taxonomy.md`
+- [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/02-error-feedback-self-correction.md`
+- [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/03-loop-guard-deadlock-timeout.md`
+- [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/04-when-not-to-use-agent.md`
+- [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/05-stage-2-review-and-quiz.md`
+
+---
+
 ## 后续阶段（正文尚未整理）
 
 | 阶段 | 状态 | 计划产出 |
 |---|---|---|
-| `02-stage-1-prompt-context.md` | ⬜ 未开始 | 一套可复用的 system prompt 模板 + 上下文裁剪策略 |
-| `03-stage-2-minimal-agent-loop.md` | ⬜ 未开始 | 手写一个 100 行以内的 ReAct 循环 |
 | `04-stage-3-memory-state.md` | ⬜ 未开始 | 会话记忆 + 长期记忆检索跑通 |
 | `05-stage-4-multi-agent-orchestration.md` | ⬜ 未开始 | 一个可拆任务、可并行的小型多 Agent 系统 |
 | `06-stage-5-production-engineering.md` | ⬜ 未开始 | 全链路 trace + 一个回归评测集 |
