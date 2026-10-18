@@ -145,6 +145,13 @@
 - [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/04-when-not-to-use-agent.md`
 - [ ] `03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/05-stage-2-review-and-quiz.md`
 
+### C12 · 工具生态：MCP 与能力复用 ⬜ 未开始
+
+- [ ] `03-stage-2-minimal-agent-loop/03-c12-mcp/01-what-is-mcp.md`
+- [ ] `03-stage-2-minimal-agent-loop/03-c12-mcp/02-use-mcp-server.md`
+- [ ] `03-stage-2-minimal-agent-loop/03-c12-mcp/03-write-mcp-server.md`
+- [ ] `03-stage-2-minimal-agent-loop/03-c12-mcp/04-mcp-security-and-quiz.md`
+
 ---
 
 ## 后续阶段（正文尚未整理）

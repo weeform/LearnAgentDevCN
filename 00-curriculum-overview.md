@@ -32,7 +32,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
-- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 3 门课 / 14 篇
+- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state.md) — 仅大纲：计划 3 门课
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration.md) — 仅大纲：计划 3 门课
 - [阶段 5 · 工程化](06-stage-5-production-engineering.md) — 仅大纲：计划 4 门课（5.1 建议提前）
@@ -40,7 +40,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（3 门课 / 14 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -115,7 +115,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C8-3 防御清单](02-stage-1-prompt-context/02-c8-prompt-security/03-defense-checklist.md)
 - [C8-4 速查与自测](02-stage-1-prompt-context/02-c8-prompt-security/04-cheatsheet-and-quiz.md)
 
-**阶段 2 · Agent 最小闭环**— 3 门课 / 14 篇 · 约 3–4 小时（含动手）
+**阶段 2 · Agent 最小闭环**— 4 门课 / 18 篇 · 约 3.5–4.5 小时（含动手）
 
 **C9 · 工具调用协议与 ReAct 手写**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/README.md)
 
@@ -138,9 +138,16 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C11-2 错误回传与自我修正](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/02-error-feedback-self-correction.md)
 - [C11-3 步数 / 死循环 / 超时](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/03-loop-guard-deadlock-timeout.md)
 - [C11-4 什么时候不该用 Agent](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/04-when-not-to-use-agent.md)
-- [C11-5 阶段 2 总复习与自测](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/05-stage-2-review-and-quiz.md)
+- [C11-5 失效模式速查与自测](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/05-stage-2-review-and-quiz.md)
 
-目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C12 起，这样「C3」永远只指一门课，不会重名。
+**C12 · 工具生态：MCP 与能力复用**— 4 篇 · 每篇 10–13 分钟 → [打开课程](03-stage-2-minimal-agent-loop/03-c12-mcp/README.md)
+
+- [C12-1 MCP 是什么、解决什么问题](03-stage-2-minimal-agent-loop/03-c12-mcp/01-what-is-mcp.md)
+- [C12-2 怎么用：接现成 MCP server](03-stage-2-minimal-agent-loop/03-c12-mcp/02-use-mcp-server.md)
+- [C12-3 怎么写：把工具包成 MCP server](03-stage-2-minimal-agent-loop/03-c12-mcp/03-write-mcp-server.md)
+- [C12-4 MCP 安全与阶段 2 总复习](03-stage-2-minimal-agent-loop/03-c12-mcp/04-mcp-security-and-quiz.md)
+
+目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C13 起，这样「C3」永远只指一门课，不会重名。
 
 ## 5. 依赖关系
 
@@ -175,11 +182,12 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 阶段 2 · Agent 最小闭环（已有正文）
 
-→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 3 门课 / 14 篇
+→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
 
 - C9 工具调用协议与 ReAct 手写（覆盖 2.1 协议细节、2.2 ReAct 循环）
 - C10 工具设计：粒度、描述与参数校验（覆盖 2.3）
 - C11 Agent 失效模式与恢复（覆盖 2.4 失败恢复、2.5 何时不该用 Agent）
+- C12 工具生态：MCP 与能力复用（补体检报告「缺口一」：MCP）
 
 ### 阶段 3 · 记忆与状态
 
@@ -244,3 +252,5 @@ v5 · 2026-09-09 更新：建全全部 7 个阶段文件夹（阶段 0–6），
 v6 · 2026-09-10 更新：新增**C0 · 大模型工作原理速成**（5 篇）作为 C1 / C2 的原理前置，解决「直接用 logits / Q K V 却从未解释」的问题；在 C2-1、C2-2、C1-1 开头加入前置提示与回顾；阶段 0 扩为 6 门课 / 27 篇。
 
 v7 · 2026-10-18 更新：阶段 1、2 补全正文——阶段 1（C6–C8 共 13 篇）、阶段 2（C9–C11 共 14 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。
+
+v8 · 2026-10-18 更新：阶段 2 新增 C12（工具生态：MCP 与能力复用，4 篇），补齐体检报告「缺口一」（MCP 完全缺失）；阶段 2 扩为 4 门课 / 18 篇，阶段 3 起编号顺延为 C13。
