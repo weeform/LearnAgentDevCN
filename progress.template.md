@@ -154,12 +154,68 @@
 
 ---
 
+## 阶段 3 · 记忆与状态
+
+> 出口标准见 `04-stage-3-memory-state/README.md`：会话压缩 + 长期记忆检索 + 可断点续跑的任务。
+
+### C13 · 会话记忆与压缩 ⬜ 未开始
+
+- [ ] `04-stage-3-memory-state/00-c13-conversation-memory/01-message-array-as-memory.md`
+- [ ] `04-stage-3-memory-state/00-c13-conversation-memory/02-compression-strategies.md`
+- [ ] `04-stage-3-memory-state/00-c13-conversation-memory/03-tool-result-budget.md`
+- [ ] `04-stage-3-memory-state/00-c13-conversation-memory/04-compression-cost.md`
+- [ ] `04-stage-3-memory-state/00-c13-conversation-memory/05-cheatsheet-and-quiz.md`
+
+### C14 · 检索与长期记忆（RAG 全链路） ⬜ 未开始
+
+- [ ] `04-stage-3-memory-state/01-c14-rag-long-term-memory/01-when-not-to-rag.md`
+- [ ] `04-stage-3-memory-state/01-c14-rag-long-term-memory/02-chunking-and-embedding.md`
+- [ ] `04-stage-3-memory-state/01-c14-rag-long-term-memory/03-retrieval-and-vector-db.md`
+- [ ] `04-stage-3-memory-state/01-c14-rag-long-term-memory/04-rerank-and-memory-maintenance.md`
+- [ ] `04-stage-3-memory-state/01-c14-rag-long-term-memory/05-cheatsheet-and-quiz.md`
+
+### C15 · 外部状态与断点续跑 ⬜ 未开始
+
+- [ ] `04-stage-3-memory-state/02-c15-external-state-checkpoint/01-task-state-machine.md`
+- [ ] `04-stage-3-memory-state/02-c15-external-state-checkpoint/02-checkpoint-resume.md`
+- [ ] `04-stage-3-memory-state/02-c15-external-state-checkpoint/03-on-demand-loading-partition.md`
+- [ ] `04-stage-3-memory-state/02-c15-external-state-checkpoint/04-subagent-context-isolation.md`
+- [ ] `04-stage-3-memory-state/02-c15-external-state-checkpoint/05-stage-3-review-and-quiz.md`
+
+---
+
+## 阶段 4 · 多 Agent 与编排
+
+> 出口标准见 `05-stage-4-multi-agent-orchestration/README.md`：一个可拆/可并行的小型系统 + 对比数据 + 负结果记录。
+
+### C16 · 拆分信号与编排模式 ⬜ 未开始
+
+- [ ] `05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/01-when-to-decompose.md`
+- [ ] `05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/02-decomposition-cost.md`
+- [ ] `05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/03-routing-pipeline.md`
+- [ ] `05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/04-master-slave-blackboard.md`
+- [ ] `05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/05-cheatsheet-and-quiz.md`
+
+### C17 · 框架横评与自研取舍 ⬜ 未开始
+
+- [ ] `05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/01-evaluation-dimensions.md`
+- [ ] `05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/02-framework-comparison.md`
+- [ ] `05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/03-escape-hatch-and-diy.md`
+- [ ] `05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/04-cheatsheet-and-quiz.md`
+
+### C18 · Agent 间通信与结果聚合 ⬜ 未开始
+
+- [ ] `05-stage-4-multi-agent-orchestration/02-c18-agent-communication/01-structured-vs-natural-language.md`
+- [ ] `05-stage-4-multi-agent-orchestration/02-c18-agent-communication/02-fanout-aggregation.md`
+- [ ] `05-stage-4-multi-agent-orchestration/02-c18-agent-communication/03-avoid-telephone-game.md`
+- [ ] `05-stage-4-multi-agent-orchestration/02-c18-agent-communication/04-stage-4-review-and-quiz.md`
+
+---
+
 ## 后续阶段（正文尚未整理）
 
 | 阶段 | 状态 | 计划产出 |
 |---|---|---|
-| `04-stage-3-memory-state.md` | ⬜ 未开始 | 会话记忆 + 长期记忆检索跑通 |
-| `05-stage-4-multi-agent-orchestration.md` | ⬜ 未开始 | 一个可拆任务、可并行的小型多 Agent 系统 |
 | `06-stage-5-production-engineering.md` | ⬜ 未开始 | 全链路 trace + 回归评测集 + 模型选型路由策略 |
 | `07-stage-6-capstone.md` | ⬜ 未开始 | 3 个能放进作品集的项目 |
 

@@ -33,14 +33,14 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
 - [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
-- [阶段 3 · 记忆与状态](04-stage-3-memory-state.md) — 仅大纲：计划 3 门课
-- [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration.md) — 仅大纲：计划 3 门课
+- [阶段 3 · 记忆与状态](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
+- [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
 - [阶段 5 · 工程化](06-stage-5-production-engineering.md) — 仅大纲：计划 5 门课（5.1 建议提前）
 - [阶段 6 · 实战项目](07-stage-6-capstone.md) — 仅大纲：3 个项目
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -147,7 +147,57 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C12-3 怎么写：把工具包成 MCP server](03-stage-2-minimal-agent-loop/03-c12-mcp/03-write-mcp-server.md)
 - [C12-4 MCP 安全与阶段 2 总复习](03-stage-2-minimal-agent-loop/03-c12-mcp/04-mcp-security-and-quiz.md)
 
-目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C13 起，这样「C3」永远只指一门课，不会重名。
+**阶段 3 · 记忆与状态**— 3 门课 / 15 篇 · 约 3.5–4.5 小时
+
+**C13 · 会话记忆与压缩**— 5 篇 · 每篇 8–15 分钟 → [打开课程](04-stage-3-memory-state/00-c13-conversation-memory/README.md)
+
+- [C13-1 消息数组就是短期记忆](04-stage-3-memory-state/00-c13-conversation-memory/01-message-array-as-memory.md)
+- [C13-2 压缩三法：摘要/删除/保留](04-stage-3-memory-state/00-c13-conversation-memory/02-compression-strategies.md)
+- [C13-3 工具返回的预算黑洞](04-stage-3-memory-state/00-c13-conversation-memory/03-tool-result-budget.md)
+- [C13-4 压缩的代价怎么量](04-stage-3-memory-state/00-c13-conversation-memory/04-compression-cost.md)
+- [C13-5 速查表与自测](04-stage-3-memory-state/00-c13-conversation-memory/05-cheatsheet-and-quiz.md)
+
+**C14 · 检索与长期记忆（RAG 全链路）**— 5 篇 · 每篇 10–15 分钟 → [打开课程](04-stage-3-memory-state/01-c14-rag-long-term-memory/README.md)
+
+- [C14-1 什么时候根本不需要 RAG](04-stage-3-memory-state/01-c14-rag-long-term-memory/01-when-not-to-rag.md)
+- [C14-2 切分与 Embedding](04-stage-3-memory-state/01-c14-rag-long-term-memory/02-chunking-and-embedding.md)
+- [C14-3 检索与向量库选型](04-stage-3-memory-state/01-c14-rag-long-term-memory/03-retrieval-and-vector-db.md)
+- [C14-4 重排与记忆维护](04-stage-3-memory-state/01-c14-rag-long-term-memory/04-rerank-and-memory-maintenance.md)
+- [C14-5 速查表与自测](04-stage-3-memory-state/01-c14-rag-long-term-memory/05-cheatsheet-and-quiz.md)
+
+**C15 · 外部状态与断点续跑**— 5 篇 · 每篇 8–15 分钟 → [打开课程](04-stage-3-memory-state/02-c15-external-state-checkpoint/README.md)
+
+- [C15-1 状态外置：任务状态机](04-stage-3-memory-state/02-c15-external-state-checkpoint/01-task-state-machine.md)
+- [C15-2 断点续跑：checkpoint 与恢复](04-stage-3-memory-state/02-c15-external-state-checkpoint/02-checkpoint-resume.md)
+- [C15-3 按需加载与上下文分区](04-stage-3-memory-state/02-c15-external-state-checkpoint/03-on-demand-loading-partition.md)
+- [C15-4 子 Agent 隔离上下文](04-stage-3-memory-state/02-c15-external-state-checkpoint/04-subagent-context-isolation.md)
+- [C15-5 阶段 3 总复习与自测](04-stage-3-memory-state/02-c15-external-state-checkpoint/05-stage-3-review-and-quiz.md)
+
+**阶段 4 · 多 Agent 与编排**— 3 门课 / 13 篇 · 约 3–4 小时
+
+**C16 · 拆分信号与编排模式**— 5 篇 · 每篇 8–15 分钟 → [打开课程](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/README.md)
+
+- [C16-1 拆分信号：先判断该不该拆](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/01-when-to-decompose.md)
+- [C16-2 拆分的代价](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/02-decomposition-cost.md)
+- [C16-3 编排模式一：路由与流水线](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/03-routing-pipeline.md)
+- [C16-4 编排模式二：主从与黑板](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/04-master-slave-blackboard.md)
+- [C16-5 速查表与自测](05-stage-4-multi-agent-orchestration/00-c16-decomposition-orchestration/05-cheatsheet-and-quiz.md)
+
+**C17 · 框架横评与自研取舍**— 4 篇 · 每篇 10–15 分钟 → [打开课程](05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/README.md)
+
+- [C17-1 评判框架的三个维度](05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/01-evaluation-dimensions.md)
+- [C17-2 LangGraph / AutoGen / CrewAI 横评](05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/02-framework-comparison.md)
+- [C17-3 逃生舱与自研取舍](05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/03-escape-hatch-and-diy.md)
+- [C17-4 速查表与自测](05-stage-4-multi-agent-orchestration/01-c17-framework-evaluation/04-cheatsheet-and-quiz.md)
+
+**C18 · Agent 间通信与结果聚合**— 4 篇 · 每篇 10–15 分钟 → [打开课程](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/README.md)
+
+- [C18-1 结构化消息 vs 自然语言](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/01-structured-vs-natural-language.md)
+- [C18-2 扇出与聚合](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/02-fanout-aggregation.md)
+- [C18-3 避免传话游戏](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/03-avoid-telephone-game.md)
+- [C18-4 阶段 4 总复习与自测](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/04-stage-4-review-and-quiz.md)
+
+目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C13 起、阶段 4 从 C16 起、阶段 5 从 C19 起，这样「C3」永远只指一门课，不会重名。
 
 ## 5. 依赖关系
 
@@ -189,23 +239,21 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - C11 Agent 失效模式与恢复（覆盖 2.4 失败恢复、2.5 何时不该用 Agent）
 - C12 工具生态：MCP 与能力复用（补体检报告「缺口一」：MCP）
 
-### 阶段 3 · 记忆与状态
+### 阶段 3 · 记忆与状态（已有正文）
 
-→ [进入阶段 3](04-stage-3-memory-state.md) — 仅大纲
+→ [进入阶段 3](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
 
-- 3.1 短期记忆：消息数组的管理与压缩
-- 3.2 长期记忆：向量库、检索、重排（**开篇先答「什么时候不需要 RAG」**：长上下文 vs RAG 的取舍）
-- 3.3 外部状态：任务状态机、断点续跑
-- 3.4 上下文工程进阶：按需加载、子 Agent 隔离上下文
+- C13 会话记忆与压缩（覆盖 3.1 短期记忆：消息数组管理、摘要/删除/保留、工具返回黑洞）
+- C14 检索与长期记忆（覆盖 3.2；开篇答「什么时候不需要 RAG」，含记忆更新与污染）
+- C15 外部状态与断点续跑（覆盖 3.3 状态机/断点续跑、3.4 按需加载与子 Agent 隔离）
 
-### 阶段 4 · 多 Agent 与编排
+### 阶段 4 · 多 Agent 与编排（已有正文）
 
-→ [进入阶段 4](05-stage-4-multi-agent-orchestration.md) — 仅大纲
+→ [进入阶段 4](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
 
-- 4.1 单 Agent 够不够：拆分信号与代价
-- 4.2 编排模式：路由 / 流水线 / 主从 / 黑板
-- 4.3 框架横评：LangGraph、AutoGen、CrewAI、自研
-- 4.4 Agent 间通信与结果聚合
+- C16 拆分信号与编排模式（覆盖 4.1 拆分信号与代价、4.2 四种编排模式）
+- C17 框架横评与自研取舍（覆盖 4.3；按三维度评判，结论标注「以写作为准」）
+- C18 Agent 间通信与结果聚合（覆盖 4.4；结构化消息、扇出聚合、防传话游戏）
 
 ### 阶段 5 · 工程化
 
@@ -234,10 +282,11 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 8. 下一步
 
-阶段 0、1、2 已有正文。按顺序推进：
+阶段 0–4 已有正文。按顺序推进：
 
 - 学完阶段 0 → 进阶段 1（Prompt 与上下文工程）。
-- 学完阶段 2 → 进阶段 3（记忆与状态，当前仅大纲）。
+- 学完阶段 2 → 进阶段 3（记忆与状态）。
+- 学完阶段 3 → 进阶段 4（多 Agent 与编排）；学完阶段 4 → 进阶段 5（工程化，当前仅大纲）。
 - 想先补阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C2 是理论课，未读完不影响后面几课，可随时回头补。
 
 ---
@@ -257,3 +306,5 @@ v7 · 2026-10-18 更新：阶段 1、2 补全正文——阶段 1（C6–C8 共 
 v8 · 2026-10-18 更新：阶段 2 新增 C12（工具生态：MCP 与能力复用，4 篇），补齐体检报告「缺口一」（MCP 完全缺失）；阶段 2 扩为 4 门课 / 18 篇，阶段 3 起编号顺延为 C13。
 
 v9 · 2026-10-19 更新：落实体检报告「缺口二」（模型选型与路由，阶段 5 新增 C22）与「缺口三」（长上下文 vs RAG 取舍，阶段 3 的 C14 开篇一节）；阶段 3–6 大纲课程编号随阶段 2 新增 C12 顺延（阶段 3 从 C13 起、阶段 6 从 C24 起）。
+
+v10 · 2026-10-20 更新：阶段 3、4 补全正文——阶段 3（C13–C15 共 15 篇）、阶段 4（C16–C18 共 13 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。
