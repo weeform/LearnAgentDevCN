@@ -160,7 +160,7 @@
 |---|---|---|
 | `04-stage-3-memory-state.md` | ⬜ 未开始 | 会话记忆 + 长期记忆检索跑通 |
 | `05-stage-4-multi-agent-orchestration.md` | ⬜ 未开始 | 一个可拆任务、可并行的小型多 Agent 系统 |
-| `06-stage-5-production-engineering.md` | ⬜ 未开始 | 全链路 trace + 一个回归评测集 |
+| `06-stage-5-production-engineering.md` | ⬜ 未开始 | 全链路 trace + 回归评测集 + 模型选型路由策略 |
 | `07-stage-6-capstone.md` | ⬜ 未开始 | 3 个能放进作品集的项目 |
 
 已知捷径（`00-curriculum-overview.md` 第 5 节）：
