@@ -212,17 +212,80 @@
 
 ---
 
-## 后续阶段（正文尚未整理）
+## 阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）
 
-| 阶段 | 状态 | 计划产出 |
-|---|---|---|
-| `06-stage-5-production-engineering.md` | ⬜ 未开始 | 全链路 trace + 回归评测集 + 模型选型路由策略 |
-| `07-stage-6-capstone.md` | ⬜ 未开始 | 3 个能放进作品集的项目 |
+> 出口标准见 `06-stage-5-production-engineering/README.md`：全链路 trace + 回归评测集 + 成本看板 + 模型选型与路由策略。
+> 已知捷径：5.1 可观测性建议提前到阶段 2 一起做，不要等阶段 5。
 
-已知捷径（`00-curriculum-overview.md` 第 5 节）：
+### C19 · 可观测性：trace 与日志规范 ⬜ 未开始
 
-- 阶段 2 一动手就要有 trace，**5.1 可观测性提前到阶段 2 一起做**，不要等阶段 5。
-- 阶段 6 的项目不用等全部学完：**6.1 在学完阶段 3 后就能开工**。
+- [ ] `06-stage-5-production-engineering/00-c19-observability/01-why-agent-observability.md`
+- [ ] `06-stage-5-production-engineering/00-c19-observability/02-trace-span-structure.md`
+- [ ] `06-stage-5-production-engineering/00-c19-observability/03-logging-sampling.md`
+- [ ] `06-stage-5-production-engineering/00-c19-observability/04-tooling-otel-langsmith.md`
+- [ ] `06-stage-5-production-engineering/00-c19-observability/05-cheatsheet-and-quiz.md`
+
+### C20 · 评测：评测集、LLM-as-judge、回归 ⬜ 未开始
+
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/01-building-eval-set.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/02-llm-as-judge-design.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/03-judge-bias.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/04-eval-in-ci-regression.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/05-cheatsheet-and-quiz.md`
+
+### C21 · 成本工程：预算、分级与告警 ⬜ 未开始
+
+- [ ] `06-stage-5-production-engineering/02-c21-cost-engineering/01-unit-cost-accounting.md`
+- [ ] `06-stage-5-production-engineering/02-c21-cost-engineering/02-budget-alerting.md`
+- [ ] `06-stage-5-production-engineering/02-c21-cost-engineering/03-cache-hit-monitoring.md`
+- [ ] `06-stage-5-production-engineering/02-c21-cost-engineering/04-model-tiering-and-quiz.md`
+
+### C22 · 模型选型与路由 ⬜ 未开始
+
+- [ ] `06-stage-5-production-engineering/03-c22-model-selection-routing/01-selection-dimensions.md`
+- [ ] `06-stage-5-production-engineering/03-c22-model-selection-routing/02-dimension-tradeoffs.md`
+- [ ] `06-stage-5-production-engineering/03-c22-model-selection-routing/03-tiered-routing.md`
+- [ ] `06-stage-5-production-engineering/03-c22-model-selection-routing/04-long-context-open-source-and-quiz.md`
+
+### C23 · 安全：权限、沙箱与人工确认 ⬜ 未开始
+
+- [ ] `06-stage-5-production-engineering/04-c23-security/01-least-privilege.md`
+- [ ] `06-stage-5-production-engineering/04-c23-security/02-sandbox-execution.md`
+- [ ] `06-stage-5-production-engineering/04-c23-security/03-human-in-the-loop.md`
+- [ ] `06-stage-5-production-engineering/04-c23-security/04-system-reliability-data-exfil.md`
+- [ ] `06-stage-5-production-engineering/04-c23-security/05-cheatsheet-and-quiz.md`
+
+---
+
+## 阶段 6 · 实战项目
+
+> 出口标准见 `07-stage-6-capstone/README.md`：3 个能放进作品集的项目，每个交付「仓库 + 评测结果 + 成本数据 + 设计复盘」。
+> 已知捷径：**6.1（C24）在学完阶段 3 后就能开工**，不用等全部学完。
+> 提醒：这是动手 lab，建议在电脑前边读边做，不适合通勤刷。
+
+### C24 · 项目一：知识库问答 Agent（RAG + 引用） ⬜ 未开始
+
+- [ ] `07-stage-6-capstone/00-c24-knowledge-base-qa/01-requirements-and-acceptance.md`
+- [ ] `07-stage-6-capstone/00-c24-knowledge-base-qa/02-system-design.md`
+- [ ] `07-stage-6-capstone/00-c24-knowledge-base-qa/03-implementation.md`
+- [ ] `07-stage-6-capstone/00-c24-knowledge-base-qa/04-evaluation-and-cost.md`
+- [ ] `07-stage-6-capstone/00-c24-knowledge-base-qa/05-retrospective-and-portfolio.md`
+
+### C25 · 项目二：数据分析 Agent（代码执行 + 沙箱） ⬜ 未开始
+
+- [ ] `07-stage-6-capstone/01-c25-data-analysis/01-requirements-and-acceptance.md`
+- [ ] `07-stage-6-capstone/01-c25-data-analysis/02-system-design.md`
+- [ ] `07-stage-6-capstone/01-c25-data-analysis/03-implementation.md`
+- [ ] `07-stage-6-capstone/01-c25-data-analysis/04-evaluation-and-cost.md`
+- [ ] `07-stage-6-capstone/01-c25-data-analysis/05-retrospective-and-portfolio.md`
+
+### C26 · 项目三：自动化工作流 Agent（多步 + 长时任务） ⬜ 未开始
+
+- [ ] `07-stage-6-capstone/02-c26-automation-workflow/01-requirements-and-acceptance.md`
+- [ ] `07-stage-6-capstone/02-c26-automation-workflow/02-system-design.md`
+- [ ] `07-stage-6-capstone/02-c26-automation-workflow/03-implementation.md`
+- [ ] `07-stage-6-capstone/02-c26-automation-workflow/04-evaluation-and-cost.md`
+- [ ] `07-stage-6-capstone/02-c26-automation-workflow/05-retrospective-and-portfolio.md`
 
 ---
 
@@ -234,11 +297,11 @@
 
 ---
 
-## 已知缺口（`08-review-course-health-check.md` 第二节）
+## 已补齐缺口（`08-review-course-health-check.md` 第二节）
 
-按严重程度排序，开新课时优先补这些：
+体检报告列出的必修缺口与强化项，现已全部落地：
 
-1. **MCP（Model Context Protocol）** — 完全缺失，最严重缺口
-2. **模型选型与路由** — 薄弱
-3. **长上下文 vs RAG 的取舍** — 缺失
-4. 应强化：上下文装配（Context Assembly）、人在回路（HITL）
+1. **MCP** → 阶段 2 的 C12（工具生态：MCP 与能力复用）
+2. **模型选型与路由** → 阶段 5 的 C22
+3. **长上下文 vs RAG 的取舍** → 阶段 3 的 C14-1 开篇
+4. **上下文装配** → 阶段 1 的 C7-4；**人在回路（HITL）** → 阶段 5 的 C23-3

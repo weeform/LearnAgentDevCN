@@ -28,19 +28,19 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - **阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）** → 产出：全链路 trace + 一个回归评测集
 - **阶段 6 · 实战项目** → 产出：3 个能放进作品集的项目
 
-**阶段直达**（仅大纲的阶段点进去看计划课程与出口标准）：
+**阶段直达**：
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
 - [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
-- [阶段 5 · 工程化](06-stage-5-production-engineering.md) — 仅大纲：计划 5 门课（5.1 建议提前）
-- [阶段 6 · 实战项目](07-stage-6-capstone.md) — 仅大纲：3 个项目
+- [阶段 5 · 工程化](06-stage-5-production-engineering/README.md) — 5 门课 / 23 篇
+- [阶段 6 · 实战项目](07-stage-6-capstone/README.md) — 3 门课 / 15 篇
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -197,7 +197,73 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C18-3 避免传话游戏](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/03-avoid-telephone-game.md)
 - [C18-4 阶段 4 总复习与自测](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/04-stage-4-review-and-quiz.md)
 
-目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C13 起、阶段 4 从 C16 起、阶段 5 从 C19 起，这样「C3」永远只指一门课，不会重名。
+**阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**— 5 门课 / 23 篇 · 约 4.5–6 小时
+
+**C19 · 可观测性：trace 与日志规范**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/00-c19-observability/README.md)
+
+- [C19-1 为什么 Agent 必须可观测](06-stage-5-production-engineering/00-c19-observability/01-why-agent-observability.md)
+- [C19-2 trace / span 结构与字段设计](06-stage-5-production-engineering/00-c19-observability/02-trace-span-structure.md)
+- [C19-3 日志规范与采样](06-stage-5-production-engineering/00-c19-observability/03-logging-sampling.md)
+- [C19-4 用现成工具落地](06-stage-5-production-engineering/00-c19-observability/04-tooling-otel-langsmith.md)
+- [C19-5 速查表与自测](06-stage-5-production-engineering/00-c19-observability/05-cheatsheet-and-quiz.md)
+
+**C20 · 评测：评测集、LLM-as-judge、回归**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/01-c20-evaluation/README.md)
+
+- [C20-1 评测集怎么造](06-stage-5-production-engineering/01-c20-evaluation/01-building-eval-set.md)
+- [C20-2 LLM-as-judge 评分维度设计](06-stage-5-production-engineering/01-c20-evaluation/02-llm-as-judge-design.md)
+- [C20-3 judge 自带哪些偏差](06-stage-5-production-engineering/01-c20-evaluation/03-judge-bias.md)
+- [C20-4 评测接入 CI 与回归](06-stage-5-production-engineering/01-c20-evaluation/04-eval-in-ci-regression.md)
+- [C20-5 速查表与自测](06-stage-5-production-engineering/01-c20-evaluation/05-cheatsheet-and-quiz.md)
+
+**C21 · 成本工程：预算、分级与告警**— 4 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/02-c21-cost-engineering/README.md)
+
+- [C21-1 单位任务成本核算](06-stage-5-production-engineering/02-c21-cost-engineering/01-unit-cost-accounting.md)
+- [C21-2 token 预算与告警](06-stage-5-production-engineering/02-c21-cost-engineering/02-budget-alerting.md)
+- [C21-3 缓存命中率监控](06-stage-5-production-engineering/02-c21-cost-engineering/03-cache-hit-monitoring.md)
+- [C21-4 模型分级 + 速查自测](06-stage-5-production-engineering/02-c21-cost-engineering/04-model-tiering-and-quiz.md)
+
+**C22 · 模型选型与路由**— 4 篇 · 每篇 10–13 分钟 → [打开课程](06-stage-5-production-engineering/03-c22-model-selection-routing/README.md)
+
+- [C22-1 选型四维度](06-stage-5-production-engineering/03-c22-model-selection-routing/01-selection-dimensions.md)
+- [C22-2 四维度怎么打架](06-stage-5-production-engineering/03-c22-model-selection-routing/02-dimension-tradeoffs.md)
+- [C22-3 分级路由](06-stage-5-production-engineering/03-c22-model-selection-routing/03-tiered-routing.md)
+- [C22-4 长上下文成本曲线与开源临界点](06-stage-5-production-engineering/03-c22-model-selection-routing/04-long-context-open-source-and-quiz.md)
+
+**C23 · 安全：权限、沙箱与人工确认**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/04-c23-security/README.md)
+
+- [C23-1 最小权限与工具权限分级](06-stage-5-production-engineering/04-c23-security/01-least-privilege.md)
+- [C23-2 沙箱执行](06-stage-5-production-engineering/04-c23-security/02-sandbox-execution.md)
+- [C23-3 人工确认与人在回路（HITL）](06-stage-5-production-engineering/04-c23-security/03-human-in-the-loop.md)
+- [C23-4 系统级稳定性与数据外泄](06-stage-5-production-engineering/04-c23-security/04-system-reliability-data-exfil.md)
+- [C23-5 速查表与自测](06-stage-5-production-engineering/04-c23-security/05-cheatsheet-and-quiz.md)
+
+**阶段 6 · 实战项目**— 3 门课 / 15 篇 · 动手为主，约 20–30 小时
+
+**C24 · 项目一：知识库问答 Agent（RAG + 引用）**— 5 篇 · 动手 lab → [打开课程](07-stage-6-capstone/00-c24-knowledge-base-qa/README.md)
+
+- [C24-1 需求与验收标准](07-stage-6-capstone/00-c24-knowledge-base-qa/01-requirements-and-acceptance.md)
+- [C24-2 系统设计](07-stage-6-capstone/00-c24-knowledge-base-qa/02-system-design.md)
+- [C24-3 实现](07-stage-6-capstone/00-c24-knowledge-base-qa/03-implementation.md)
+- [C24-4 评测与成本数据](07-stage-6-capstone/00-c24-knowledge-base-qa/04-evaluation-and-cost.md)
+- [C24-5 复盘与作品集呈现](07-stage-6-capstone/00-c24-knowledge-base-qa/05-retrospective-and-portfolio.md)
+
+**C25 · 项目二：数据分析 Agent（代码执行 + 沙箱）**— 5 篇 · 动手 lab → [打开课程](07-stage-6-capstone/01-c25-data-analysis/README.md)
+
+- [C25-1 需求与验收标准](07-stage-6-capstone/01-c25-data-analysis/01-requirements-and-acceptance.md)
+- [C25-2 系统设计](07-stage-6-capstone/01-c25-data-analysis/02-system-design.md)
+- [C25-3 实现](07-stage-6-capstone/01-c25-data-analysis/03-implementation.md)
+- [C25-4 评测与成本数据](07-stage-6-capstone/01-c25-data-analysis/04-evaluation-and-cost.md)
+- [C25-5 复盘与作品集呈现](07-stage-6-capstone/01-c25-data-analysis/05-retrospective-and-portfolio.md)
+
+**C26 · 项目三：自动化工作流 Agent（多步 + 长时任务）**— 5 篇 · 动手 lab → [打开课程](07-stage-6-capstone/02-c26-automation-workflow/README.md)
+
+- [C26-1 需求与验收标准](07-stage-6-capstone/02-c26-automation-workflow/01-requirements-and-acceptance.md)
+- [C26-2 系统设计](07-stage-6-capstone/02-c26-automation-workflow/02-system-design.md)
+- [C26-3 实现](07-stage-6-capstone/02-c26-automation-workflow/03-implementation.md)
+- [C26-4 评测与成本数据](07-stage-6-capstone/02-c26-automation-workflow/04-evaluation-and-cost.md)
+- [C26-5 复盘与作品集呈现](07-stage-6-capstone/02-c26-automation-workflow/05-retrospective-and-portfolio.md)
+
+目录规则：第一层是**阶段**（阶段 N · 主题），第二层是**课程**（CN · 主题），第三层是**单篇**（CN-M）。**C 编号全局连续，不按阶段重新从 1 开始**—— 阶段 1 从 C6 起、阶段 2 从 C9 起、阶段 3 从 C13 起、阶段 4 从 C16 起、阶段 5 从 C19 起、阶段 6 从 C24 起，这样「C3」永远只指一门课，不会重名。
 
 ## 5. 依赖关系
 
@@ -255,24 +321,23 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - C17 框架横评与自研取舍（覆盖 4.3；按三维度评判，结论标注「以写作为准」）
 - C18 Agent 间通信与结果聚合（覆盖 4.4；结构化消息、扇出聚合、防传话游戏）
 
-### 阶段 5 · 工程化
+### 阶段 5 · 工程化（已有正文）
 
-→ [进入阶段 5](06-stage-5-production-engineering.md) — 仅大纲；5.1 建议提前到阶段 2
+→ [进入阶段 5](06-stage-5-production-engineering/README.md) — 5 门课 / 23 篇
 
-- 5.1 可观测性：trace、span、日志规范（建议提前到阶段 2）
-- 5.2 评测：离线评测集、LLM-as-judge、回归
-- 5.3 成本：token 预算、缓存、模型分级
-- 5.4 稳定性：超时、限流、重试、幂等
-- 5.5 安全：最小权限、沙箱、人工确认
-- 5.6 模型选型与路由：选型四维度、分级路由、长上下文成本曲线、开源临界点（新增）
+- C19 可观测性：trace 与日志规范（覆盖 5.1，建议提前到阶段 2）
+- C20 评测：评测集、LLM-as-judge、回归（覆盖 5.2）
+- C21 成本工程：预算、分级与告警（覆盖 5.3）
+- C22 模型选型与路由：选型四维度、分级路由、长上下文成本曲线、开源临界点（覆盖 5.6）
+- C23 安全：权限、沙箱、人工确认（覆盖 5.5，含 5.4 系统级稳定性与数据外泄）
 
-### 阶段 6 · 实战项目
+### 阶段 6 · 实战项目（已有正文）
 
-→ [进入阶段 6](07-stage-6-capstone.md) — 仅大纲；6.1 在阶段 3 后即可开工
+→ [进入阶段 6](07-stage-6-capstone/README.md) — 3 门课 / 15 篇
 
-- 6.1 个人知识库问答 Agent（RAG + 引用）
-- 6.2 数据分析 Agent（代码执行 + 沙箱）
-- 6.3 自动化工作流 Agent（多步 + 长时任务）
+- C24 项目一：知识库问答 Agent（RAG + 引用）（覆盖 6.1，阶段 3 后即可开工）
+- C25 项目二：数据分析 Agent（代码执行 + 沙箱）（覆盖 6.2）
+- C26 项目三：自动化工作流 Agent（多步 + 长时任务）（覆盖 6.3）
 
 ## 7. 贯穿全程的三条暗线
 
@@ -282,12 +347,13 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 8. 下一步
 
-阶段 0–4 已有正文。按顺序推进：
+阶段 0–6 正文已全部补齐，课程完结。按顺序推进：
 
 - 学完阶段 0 → 进阶段 1（Prompt 与上下文工程）。
 - 学完阶段 2 → 进阶段 3（记忆与状态）。
-- 学完阶段 3 → 进阶段 4（多 Agent 与编排）；学完阶段 4 → 进阶段 5（工程化，当前仅大纲）。
+- 学完阶段 3 → 进阶段 4（多 Agent 与编排）；学完阶段 4 → 进阶段 5（工程化）；学完阶段 5 → 进阶段 6（实战项目）。
 - 想先补阶段 0 → 建议顺序**C0**（原理，不懂就读）→ C3（成本）→ C4（流式/结构化）→ C5（稳定性）。C2 是理论课，未读完不影响后面几课，可随时回头补。
+- 阶段 6 不用等全部学完：6.1（C24）在学完阶段 3 后就能开工。
 
 ---
 
@@ -308,3 +374,5 @@ v8 · 2026-10-18 更新：阶段 2 新增 C12（工具生态：MCP 与能力复�
 v9 · 2026-10-19 更新：落实体检报告「缺口二」（模型选型与路由，阶段 5 新增 C22）与「缺口三」（长上下文 vs RAG 取舍，阶段 3 的 C14 开篇一节）；阶段 3–6 大纲课程编号随阶段 2 新增 C12 顺延（阶段 3 从 C13 起、阶段 6 从 C24 起）。
 
 v10 · 2026-10-20 更新：阶段 3、4 补全正文——阶段 3（C13–C15 共 15 篇）、阶段 4（C16–C18 共 13 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。
+
+v11 · 2026-10-22 更新：阶段 5、6 补全正文——阶段 5（C19–C23 共 23 篇）、阶段 6（C24–C26 共 15 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。至此全课程 7 阶段 / 27 门课 / 124 篇正文全部完成。

@@ -1,6 +1,6 @@
 # 大模型与 Agent 开发学习
 
-一套自学的 **Agent 开发课程库**，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–4 共 86 篇正文（另含 19 篇课程索引）。
+一套自学的 **Agent 开发课程库**，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 124 篇正文（另含 27 篇课程索引）。
 目标：**系统掌握 Agent 开发**；大模型理论只学「够用」的那一层。
 主场景：手机端通勤阅读，每篇 8–15 分钟。
 
@@ -28,7 +28,7 @@ python scripts/init-progress.py
 
 | 文件 | 入库？ | 作用 |
 |---|---|---|
-| `progress.template.md` | ✅ 入库 | 86 篇正文的空勾选骨架，所有人共享同一份 |
+| `progress.template.md` | ✅ 入库 | 124 篇正文的空勾选骨架，所有人共享同一份 |
 | `progress.md` | ❌ 本地私有 | 你的真实进度，来自模板的一次性复制 |
 
 **第一次一定要跑 `scripts/init-progress.py`**——clone 下来是没有 `progress.md` 的，
@@ -73,7 +73,16 @@ LearnAgentDevCN
 │   ├── 00-c16-decomposition-orchestration/  C16 · 拆分信号与编排模式
 │   ├── 01-c17-framework-evaluation/         C17 · 框架横评与自研取舍
 │   └── 02-c18-agent-communication/          C18 · Agent 间通信与结果聚合
-├── 06…07-stage-*.md                 阶段 5–6（仅大纲）
+├── 06-stage-5-production-engineering/  阶段 5 · 工程化（观测/评测/成本/安全）
+│   ├── 00-c19-observability/              C19 · 可观测性：trace 与日志规范
+│   ├── 01-c20-evaluation/                 C20 · 评测：评测集、LLM-as-judge、回归
+│   ├── 02-c21-cost-engineering/           C21 · 成本工程：预算、分级与告警
+│   ├── 03-c22-model-selection-routing/    C22 · 模型选型与路由
+│   └── 04-c23-security/                   C23 · 安全：权限、沙箱与人工确认
+├── 07-stage-6-capstone/                阶段 6 · 实战项目
+│   ├── 00-c24-knowledge-base-qa/           C24 · 知识库问答 Agent（RAG + 引用）
+│   ├── 01-c25-data-analysis/               C25 · 数据分析 Agent（代码执行 + 沙箱）
+│   └── 02-c26-automation-workflow/         C26 · 自动化工作流 Agent（长时任务）
 ├── 08-review-course-health-check.md 全课程体检
 ├── progress.template.md             进度模板
 ├── scripts/init-progress.py         进度自举脚本
