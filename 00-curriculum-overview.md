@@ -91,9 +91,9 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C5-3 限流、并发、超时与降级](01-stage-0-model-api/05-c5-reliability/03-ratelimit-concurrency-degradation.md)
 - [C5-4 阶段 0 总复习：速查表、交付物与综合自测](01-stage-0-model-api/05-c5-reliability/04-stage-0-review-and-quiz.md)
 
-**阶段 1 · Prompt 与上下文工程**— 3 门课 / 13 篇 · 约 2.5–3.5 小时
+**阶段 1 · Prompt 与上下文工程**— 3 门课 / 13 篇 · 约 3–4 小时
 
-**C6 · System Prompt 工程与提示词模式**— 5 篇 · 每篇 8–15 分钟 → [打开课程](02-stage-1-prompt-context/00-c6-system-prompt-patterns/README.md)
+**C6 · System Prompt 工程与提示词模式**— 5 篇 · 每篇 10–14 分钟 → [打开课程](02-stage-1-prompt-context/00-c6-system-prompt-patterns/README.md)
 
 - [C6-1 五段式模板](02-stage-1-prompt-context/00-c6-system-prompt-patterns/01-system-prompt-five-part.md)
 - [C6-2 约束 > 角色](02-stage-1-prompt-context/00-c6-system-prompt-patterns/02-constraints-over-persona.md)
@@ -101,14 +101,14 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C6-4 CoT 的反例与提示词模式清单](02-stage-1-prompt-context/00-c6-system-prompt-patterns/04-cot-pitfalls-and-pattern-library.md)
 - [C6-5 速查表与自测](02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-cheatsheet-and-quiz.md)
 
-**C7 · 上下文管理与压缩**— 4 篇 · 每篇 10–15 分钟 → [打开课程](02-stage-1-prompt-context/01-c7-context-management/README.md)
+**C7 · 上下文管理与压缩**— 4 篇 · 每篇 14–17 分钟 → [打开课程](02-stage-1-prompt-context/01-c7-context-management/README.md)
 
 - [C7-1 上下文预算](02-stage-1-prompt-context/01-c7-context-management/01-context-budget.md)
 - [C7-2 裁剪与 KV Cache](02-stage-1-prompt-context/01-c7-context-management/02-truncation-and-kv-cache.md)
 - [C7-3 摘要与压缩](02-stage-1-prompt-context/01-c7-context-management/03-summarization-and-compression.md)
 - [C7-4 上下文装配与裁剪策略](02-stage-1-prompt-context/01-c7-context-management/04-context-assembly-and-quiz.md)
 
-**C8 · 提示词安全与注入防御**— 4 篇 · 每篇 8–12 分钟 → [打开课程](02-stage-1-prompt-context/02-c8-prompt-security/README.md)
+**C8 · 提示词安全与注入防御**— 4 篇 · 每篇 10–13 分钟 → [打开课程](02-stage-1-prompt-context/02-c8-prompt-security/README.md)
 
 - [C8-1 注入全景](02-stage-1-prompt-context/02-c8-prompt-security/01-injection-taxonomy.md)
 - [C8-2 间接注入防御](02-stage-1-prompt-context/02-c8-prompt-security/02-indirect-injection-defense.md)
@@ -148,9 +148,9 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C12-3 怎么写：把工具包成 MCP server](03-stage-2-minimal-agent-loop/03-c12-mcp/03-write-mcp-server.md)
 - [C12-4 MCP 安全与阶段 2 总复习](03-stage-2-minimal-agent-loop/03-c12-mcp/04-mcp-security-and-quiz.md)
 
-**阶段 3 · 记忆与状态**— 3 门课 / 15 篇 · 约 3.5–4.5 小时
+**阶段 3 · 记忆与状态**— 3 门课 / 15 篇 · 约 4–5 小时
 
-**C13 · 会话记忆与压缩**— 5 篇 · 每篇 8–15 分钟 → [打开课程](04-stage-3-memory-state/00-c13-conversation-memory/README.md)
+**C13 · 会话记忆与压缩**— 5 篇 · 每篇 12–13 分钟 → [打开课程](04-stage-3-memory-state/00-c13-conversation-memory/README.md)
 
 - [C13-1 消息数组就是短期记忆](04-stage-3-memory-state/00-c13-conversation-memory/01-message-array-as-memory.md)
 - [C13-2 压缩三法：摘要/删除/保留](04-stage-3-memory-state/00-c13-conversation-memory/02-compression-strategies.md)
@@ -158,7 +158,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C13-4 压缩的代价怎么量](04-stage-3-memory-state/00-c13-conversation-memory/04-compression-cost.md)
 - [C13-5 速查表与自测](04-stage-3-memory-state/00-c13-conversation-memory/05-cheatsheet-and-quiz.md)
 
-**C14 · 检索与长期记忆（RAG 全链路）**— 5 篇 · 每篇 10–15 分钟 → [打开课程](04-stage-3-memory-state/01-c14-rag-long-term-memory/README.md)
+**C14 · 检索与长期记忆（RAG 全链路）**— 5 篇 · 每篇 12–14 分钟 → [打开课程](04-stage-3-memory-state/01-c14-rag-long-term-memory/README.md)
 
 - [C14-1 什么时候根本不需要 RAG](04-stage-3-memory-state/01-c14-rag-long-term-memory/01-when-not-to-rag.md)
 - [C14-2 切分与 Embedding](04-stage-3-memory-state/01-c14-rag-long-term-memory/02-chunking-and-embedding.md)
@@ -166,7 +166,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C14-4 重排与记忆维护](04-stage-3-memory-state/01-c14-rag-long-term-memory/04-rerank-and-memory-maintenance.md)
 - [C14-5 速查表与自测](04-stage-3-memory-state/01-c14-rag-long-term-memory/05-cheatsheet-and-quiz.md)
 
-**C15 · 外部状态与断点续跑**— 5 篇 · 每篇 8–15 分钟 → [打开课程](04-stage-3-memory-state/02-c15-external-state-checkpoint/README.md)
+**C15 · 外部状态与断点续跑**— 5 篇 · 每篇 12–14 分钟 → [打开课程](04-stage-3-memory-state/02-c15-external-state-checkpoint/README.md)
 
 - [C15-1 状态外置：任务状态机](04-stage-3-memory-state/02-c15-external-state-checkpoint/01-task-state-machine.md)
 - [C15-2 断点续跑：checkpoint 与恢复](04-stage-3-memory-state/02-c15-external-state-checkpoint/02-checkpoint-resume.md)
@@ -379,3 +379,5 @@ v10 · 2026-10-20 更新：阶段 3、4 补全正文——阶段 3（C13–C15 �
 v11 · 2026-10-22 更新：阶段 5、6 补全正文——阶段 5（C19–C23 共 23 篇）、阶段 6（C24–C26 共 15 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。至此全课程 7 阶段 / 27 门课 / 124 篇正文全部完成。
 
 v12 · 2026-10-31 更新：① 阶段 2 的 C10 新增 **C10-4「操作型工具：computer use 与浏览器」**（原 C10-4 顺延为 C10-5），补上「操作界面」类工具的设计要点与四条安全底线；阶段 2 扩为 4 门课 / 19 篇，全课程共 **125 篇**。② 阶段 4 全 13 篇补厚（篇均 1265 → 2465 字符），补齐代码骨架、失败案例与验证动作。③ C22-1 增「推理预算（thinking）」一节、C17-2 增「厂商 SDK 分层」一节、C18-1 增「A2A 协议」一节。
+
+v13 · 2026-10-31 更新：阶段 1、3 全 27 篇补厚（阶段 1 篇均 1514 → 3143 字符，阶段 3 篇均 1488 → 3166 字符），补齐可运行代码、量化算账与失败案例：C6 增「约束可验证判据」「症状→病灶对照表」，C7 增「伤一次缓存值不值」的分摊计算与装配代码，C8 增四种真实载荷形态与攻击链拦截点，C13 增「tool_calls 成对」硬约束与压缩悬崖，C14 增 RRF 实现与 Recall/MRR/Precision 分工，C15 增状态转移校验与子 Agent 回传契约。各课程 README 与阶段页的篇目时长同步调整。
