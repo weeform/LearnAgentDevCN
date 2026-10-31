@@ -106,6 +106,23 @@ schema = {
 - 约束解码保证结构；**schema 要稳定**，否则反复编译。
 - 字段名与 description 是 prompt 的一部分，别敷衍。
 
+## 思考题
+
+> 先自己答，再展开参考思路。这三问不考记忆，考的是你能不能把它用在自己的项目上。
+
+1. strict 模式为什么要求所有字段 required、且 additionalProperties: false？
+2. 如果确实有可选字段，应该怎么表达？
+3. schema 频繁变动有什么代价？为什么说「schema 也是 prompt」？
+
+<details>
+<summary>参考思路</summary>
+
+1. 约束解码要在生成时就把非法 token 排掉。只要存在「可能不出现」的字段或「可能多出」的键，就说不清哪些 token 合法，只能放弃严格约束。
+2. 用 nullable（type: ["string","null"]）并把字段放进 required，让模型显式输出 null，而不是让字段缺席。缺席与 null 在语义上要由你统一定义。
+3. schema 变更会触发后端重新编译约束、也会改变模型对任务的理解；字段名与 description 会被模型当提示读。稳定的 schema 既省钱又稳定输出（呼应 C2 的前缀稳定性）。
+
+</details>
+
 ## 下一篇
 
 就算开了 strict，也总有需要解析自由输出的时候（尤其跨厂商、或老模型）。C4-4 讲"模型输出 → 可信对象"的容错流水线。
