@@ -199,9 +199,9 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C18-3 避免传话游戏](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/03-avoid-telephone-game.md)
 - [C18-4 阶段 4 总复习与自测](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/04-stage-4-review-and-quiz.md)
 
-**阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**— 5 门课 / 23 篇 · 约 4.5–6 小时
+**阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**— 5 门课 / 23 篇 · 约 5.5–7 小时
 
-**C19 · 可观测性：trace 与日志规范**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/00-c19-observability/README.md)
+**C19 · 可观测性：trace 与日志规范**— 5 篇 · 每篇 12–18 分钟 → [打开课程](06-stage-5-production-engineering/00-c19-observability/README.md)
 
 - [C19-1 为什么 Agent 必须可观测](06-stage-5-production-engineering/00-c19-observability/01-why-agent-observability.md)
 - [C19-2 trace / span 结构与字段设计](06-stage-5-production-engineering/00-c19-observability/02-trace-span-structure.md)
@@ -209,7 +209,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C19-4 用现成工具落地](06-stage-5-production-engineering/00-c19-observability/04-tooling-otel-langsmith.md)
 - [C19-5 速查表与自测](06-stage-5-production-engineering/00-c19-observability/05-cheatsheet-and-quiz.md)
 
-**C20 · 评测：评测集、LLM-as-judge、回归**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/01-c20-evaluation/README.md)
+**C20 · 评测：评测集、LLM-as-judge、回归**— 5 篇 · 每篇 12–15 分钟 → [打开课程](06-stage-5-production-engineering/01-c20-evaluation/README.md)
 
 - [C20-1 评测集怎么造](06-stage-5-production-engineering/01-c20-evaluation/01-building-eval-set.md)
 - [C20-2 LLM-as-judge 评分维度设计](06-stage-5-production-engineering/01-c20-evaluation/02-llm-as-judge-design.md)
@@ -217,21 +217,21 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C20-4 评测接入 CI 与回归](06-stage-5-production-engineering/01-c20-evaluation/04-eval-in-ci-regression.md)
 - [C20-5 速查表与自测](06-stage-5-production-engineering/01-c20-evaluation/05-cheatsheet-and-quiz.md)
 
-**C21 · 成本工程：预算、分级与告警**— 4 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/02-c21-cost-engineering/README.md)
+**C21 · 成本工程：预算、分级与告警**— 4 篇 · 每篇 12–14 分钟 → [打开课程](06-stage-5-production-engineering/02-c21-cost-engineering/README.md)
 
 - [C21-1 单位任务成本核算](06-stage-5-production-engineering/02-c21-cost-engineering/01-unit-cost-accounting.md)
 - [C21-2 token 预算与告警](06-stage-5-production-engineering/02-c21-cost-engineering/02-budget-alerting.md)
 - [C21-3 缓存命中率监控](06-stage-5-production-engineering/02-c21-cost-engineering/03-cache-hit-monitoring.md)
 - [C21-4 模型分级 + 速查自测](06-stage-5-production-engineering/02-c21-cost-engineering/04-model-tiering-and-quiz.md)
 
-**C22 · 模型选型与路由**— 4 篇 · 每篇 10–13 分钟 → [打开课程](06-stage-5-production-engineering/03-c22-model-selection-routing/README.md)
+**C22 · 模型选型与路由**— 4 篇 · 每篇 12–14 分钟 → [打开课程](06-stage-5-production-engineering/03-c22-model-selection-routing/README.md)
 
 - [C22-1 选型四维度](06-stage-5-production-engineering/03-c22-model-selection-routing/01-selection-dimensions.md)
 - [C22-2 四维度怎么打架](06-stage-5-production-engineering/03-c22-model-selection-routing/02-dimension-tradeoffs.md)
 - [C22-3 分级路由](06-stage-5-production-engineering/03-c22-model-selection-routing/03-tiered-routing.md)
 - [C22-4 长上下文成本曲线与开源临界点](06-stage-5-production-engineering/03-c22-model-selection-routing/04-long-context-open-source-and-quiz.md)
 
-**C23 · 安全：权限、沙箱与人工确认**— 5 篇 · 每篇 10–15 分钟 → [打开课程](06-stage-5-production-engineering/04-c23-security/README.md)
+**C23 · 安全：权限、沙箱与人工确认**— 5 篇 · 每篇 12–14 分钟 → [打开课程](06-stage-5-production-engineering/04-c23-security/README.md)
 
 - [C23-1 最小权限与工具权限分级](06-stage-5-production-engineering/04-c23-security/01-least-privilege.md)
 - [C23-2 沙箱执行](06-stage-5-production-engineering/04-c23-security/02-sandbox-execution.md)
@@ -384,3 +384,5 @@ v12 · 2026-10-31 更新：① 阶段 2 的 C10 新增 **C10-4「操作型工具
 v13 · 2026-10-31 更新：阶段 1、3 全 27 篇补厚（阶段 1 篇均 1514 → 3143 字符，阶段 3 篇均 1488 → 3166 字符），补齐可运行代码、量化算账与失败案例：C6 增「约束可验证判据」「症状→病灶对照表」，C7 增「伤一次缓存值不值」的分摊计算与装配代码，C8 增四种真实载荷形态与攻击链拦截点，C13 增「tool_calls 成对」硬约束与压缩悬崖，C14 增 RRF 实现与 Recall/MRR/Precision 分工，C15 增状态转移校验与子 Agent 回传契约。各课程 README 与阶段页的篇目时长同步调整。
 
 v14 · 2026-10-31 更新：阶段 1 的 C6 新增 **C6-5「Prompt 版本管理与回归测试」**（原 C6-5 顺延为 C6-6），补上版本号判据与存放位置、回归集三类样例与三种判据、CI 硬门禁与软指标分工、灰度回滚与漂移监控，落实阶段 1 出口标准「带版本号」一条；阶段 1 扩为 3 门课 / 14 篇，全课程共 **126 篇**。同时统一 C6-1 与 C6-5 的版本号存放口径：变更史进 `meta.yaml`，运行时指纹拼在 prompt 末尾以不伤前缀缓存。
+
+v15 · 2026-10-31 更新：阶段 5 共 12 篇补厚（篇均 1943 → 2467 字符），至此全库 126 篇**已无低于 2000 字符的篇目**，均值 2824。补入的关键内容：C19-1 无 trace 排查的时间账与 trace 的三类盲区、C19-4 OTel 接入骨架与「head sampling 丢失败样本 / PII 出域 / 字段膨胀」三坑、C20-3 第五种偏差（分数尺度漂移）与 raw agreement 的 kappa 陷阱、C20-4 flaky 用例处置、C21-2「预算要事前判」与三类看不见的钱、C21-3 命中率高不等于省钱、C22-2 thinking 作为同时拧动三条曲线的手柄、C23-3 确认与执行之间的时差漏洞、C23-4 外泄四通道。各课程 README 与阶段页时长已按新篇幅同步。
