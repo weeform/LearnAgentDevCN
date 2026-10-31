@@ -1,6 +1,6 @@
 # 大模型与 Agent 开发学习
 
-一套自学的 **Agent 开发课程库**，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 124 篇正文（另含 27 篇课程索引）。
+一套自学的 **Agent 开发课程库**，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 125 篇正文（另含 27 篇课程索引）。
 目标：**系统掌握 Agent 开发**；大模型理论只学「够用」的那一层。
 主场景：手机端通勤阅读，每篇 8–15 分钟。
 
@@ -28,7 +28,7 @@ python scripts/init-progress.py
 
 | 文件 | 入库？ | 作用 |
 |---|---|---|
-| `progress.template.md` | ✅ 入库 | 124 篇正文的空勾选骨架，所有人共享同一份 |
+| `progress.template.md` | ✅ 入库 | 125 篇正文的空勾选骨架，所有人共享同一份 |
 | `progress.md` | ❌ 本地私有 | 你的真实进度，来自模板的一次性复制 |
 
 **第一次一定要跑 `scripts/init-progress.py`**——clone 下来是没有 `progress.md` 的，
@@ -62,7 +62,7 @@ LearnAgentDevCN
 │   └── 02-c8-prompt-security/          C8 · 提示词安全与注入防御
 ├── 03-stage-2-minimal-agent-loop/   阶段 2 · Agent 最小闭环
 │   ├── 00-c9-tool-calling-react/       C9 · 工具调用协议与 ReAct 手写
-│   ├── 01-c10-tool-design/             C10 · 工具设计：粒度、描述与参数校验
+│   ├── 01-c10-tool-design/             C10 · 工具设计：粒度、描述、参数校验与操作型工具
 │   ├── 02-c11-agent-failure-recovery/  C11 · Agent 失效模式与恢复
 │   └── 03-c12-mcp/                     C12 · 工具生态：MCP 与能力复用
 ├── 04-stage-3-memory-state/        阶段 3 · 记忆与状态

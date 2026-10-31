@@ -32,7 +32,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
-- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
+- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 19 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
 - [阶段 5 · 工程化](06-stage-5-production-engineering/README.md) — 5 门课 / 23 篇
@@ -40,7 +40,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 18 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 19 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -115,7 +115,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C8-3 防御清单](02-stage-1-prompt-context/02-c8-prompt-security/03-defense-checklist.md)
 - [C8-4 速查与自测](02-stage-1-prompt-context/02-c8-prompt-security/04-cheatsheet-and-quiz.md)
 
-**阶段 2 · Agent 最小闭环**— 4 门课 / 18 篇 · 约 3.5–4.5 小时（含动手）
+**阶段 2 · Agent 最小闭环**— 4 门课 / 19 篇 · 约 4–5 小时（含动手）
 
 **C9 · 工具调用协议与 ReAct 手写**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/README.md)
 
@@ -125,12 +125,13 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C9-4 循环终止条件](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/04-loop-termination.md)
 - [C9-5 速查表与自测](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/05-cheatsheet-and-quiz.md)
 
-**C10 · 工具设计：粒度、描述与参数校验**— 4 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/01-c10-tool-design/README.md)
+**C10 · 工具设计：粒度、描述、参数校验与操作型工具**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/01-c10-tool-design/README.md)
 
 - [C10-1 工具粒度](03-stage-2-minimal-agent-loop/01-c10-tool-design/01-tool-granularity.md)
 - [C10-2 命名与描述](03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md)
 - [C10-3 参数校验](03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md)
-- [C10-4 设计清单与自测](03-stage-2-minimal-agent-loop/01-c10-tool-design/04-cheatsheet-and-quiz.md)
+- [C10-4 操作型工具：computer use 与浏览器](03-stage-2-minimal-agent-loop/01-c10-tool-design/04-computer-use-and-browser.md)
+- [C10-5 设计清单与自测](03-stage-2-minimal-agent-loop/01-c10-tool-design/05-cheatsheet-and-quiz.md)
 
 **C11 · Agent 失效模式与恢复**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/README.md)
 
@@ -298,7 +299,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 阶段 2 · Agent 最小闭环（已有正文）
 
-→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 18 篇
+→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 19 篇
 
 - C9 工具调用协议与 ReAct 手写（覆盖 2.1 协议细节、2.2 ReAct 循环）
 - C10 工具设计：粒度、描述与参数校验（覆盖 2.3）
@@ -376,3 +377,5 @@ v9 · 2026-10-19 更新：落实体检报告「缺口二」（模型选型与路
 v10 · 2026-10-20 更新：阶段 3、4 补全正文——阶段 3（C13–C15 共 15 篇）、阶段 4（C16–C18 共 13 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。
 
 v11 · 2026-10-22 更新：阶段 5、6 补全正文——阶段 5（C19–C23 共 23 篇）、阶段 6（C24–C26 共 15 篇），均改为文件夹结构；课程地图、阶段直达、各阶段大纲同步更新。至此全课程 7 阶段 / 27 门课 / 124 篇正文全部完成。
+
+v12 · 2026-10-31 更新：① 阶段 2 的 C10 新增 **C10-4「操作型工具：computer use 与浏览器」**（原 C10-4 顺延为 C10-5），补上「操作界面」类工具的设计要点与四条安全底线；阶段 2 扩为 4 门课 / 19 篇，全课程共 **125 篇**。② 阶段 4 全 13 篇补厚（篇均 1265 → 2465 字符），补齐代码骨架、失败案例与验证动作。③ C22-1 增「推理预算（thinking）」一节、C17-2 增「厂商 SDK 分层」一节、C18-1 增「A2A 协议」一节。

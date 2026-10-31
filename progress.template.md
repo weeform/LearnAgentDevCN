@@ -130,12 +130,13 @@
 - [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/04-loop-termination.md`
 - [ ] `03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/05-cheatsheet-and-quiz.md`
 
-### C10 · 工具设计：粒度、描述与参数校验 ⬜ 未开始
+### C10 · 工具设计：粒度、描述、参数校验与操作型工具 ⬜ 未开始
 
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/01-tool-granularity.md`
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md`
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md`
-- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/04-cheatsheet-and-quiz.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/04-computer-use-and-browser.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/05-cheatsheet-and-quiz.md`
 
 ### C11 · Agent 失效模式与恢复 ⬜ 未开始
 
