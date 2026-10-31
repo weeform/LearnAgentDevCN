@@ -30,9 +30,9 @@
 
 **C16 · 拆分信号与编排模式**— 5 篇 · 45–60 min · 拆分信号、拆分代价、路由/流水线/主从/黑板四种拓扑 → [打开课程](00-c16-decomposition-orchestration/README.md)
 
-**C17 · 框架横评与自研取舍**— 4 篇 · 40–50 min · 评判维度、LangGraph/AutoGen/CrewAI 横评、逃生舱与自研 → [打开课程](01-c17-framework-evaluation/README.md)
+**C17 · 框架横评与自研取舍**— 4 篇 · 45–55 min · 评判维度、LangGraph/AutoGen/CrewAI 横评与厂商 SDK 分层、逃生舱与自研 → [打开课程](01-c17-framework-evaluation/README.md)
 
-**C18 · Agent 间通信与结果聚合**— 4 篇 · 40–50 min · 结构化 vs 自然语言消息、扇出聚合、避免传话游戏 → [打开课程](02-c18-agent-communication/README.md)
+**C18 · Agent 间通信与结果聚合**— 4 篇 · 45–55 min · 结构化 vs 自然语言消息、扇出聚合、避免传话游戏、跨系统 A2A → [打开课程](02-c18-agent-communication/README.md)
 
 ## 推荐阅读顺序
 
