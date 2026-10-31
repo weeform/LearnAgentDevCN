@@ -31,7 +31,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 **阶段直达**：
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
-- [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
+- [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 14 篇
 - [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 19 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
@@ -40,7 +40,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 13 篇）、阶段 2（4 门课 / 19 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 14 篇）、阶段 2（4 门课 / 19 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -91,15 +91,16 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C5-3 限流、并发、超时与降级](01-stage-0-model-api/05-c5-reliability/03-ratelimit-concurrency-degradation.md)
 - [C5-4 阶段 0 总复习：速查表、交付物与综合自测](01-stage-0-model-api/05-c5-reliability/04-stage-0-review-and-quiz.md)
 
-**阶段 1 · Prompt 与上下文工程**— 3 门课 / 13 篇 · 约 3–4 小时
+**阶段 1 · Prompt 与上下文工程**— 3 门课 / 14 篇 · 约 3.5–4.5 小时
 
-**C6 · System Prompt 工程与提示词模式**— 5 篇 · 每篇 10–14 分钟 → [打开课程](02-stage-1-prompt-context/00-c6-system-prompt-patterns/README.md)
+**C6 · System Prompt 工程与提示词模式**— 6 篇 · 每篇 10–14 分钟 → [打开课程](02-stage-1-prompt-context/00-c6-system-prompt-patterns/README.md)
 
 - [C6-1 五段式模板](02-stage-1-prompt-context/00-c6-system-prompt-patterns/01-system-prompt-five-part.md)
 - [C6-2 约束 > 角色](02-stage-1-prompt-context/00-c6-system-prompt-patterns/02-constraints-over-persona.md)
 - [C6-3 少样本 / 思维链 / 自一致性](02-stage-1-prompt-context/00-c6-system-prompt-patterns/03-few-shot-cot-self-consistency.md)
 - [C6-4 CoT 的反例与提示词模式清单](02-stage-1-prompt-context/00-c6-system-prompt-patterns/04-cot-pitfalls-and-pattern-library.md)
-- [C6-5 速查表与自测](02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-cheatsheet-and-quiz.md)
+- [C6-5 Prompt 版本管理与回归测试](02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-prompt-versioning-and-regression.md)
+- [C6-6 速查表与自测](02-stage-1-prompt-context/00-c6-system-prompt-patterns/06-cheatsheet-and-quiz.md)
 
 **C7 · 上下文管理与压缩**— 4 篇 · 每篇 14–17 分钟 → [打开课程](02-stage-1-prompt-context/01-c7-context-management/README.md)
 
@@ -290,7 +291,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 阶段 1 · Prompt 与上下文工程（已有正文）
 
-→ [进入阶段 1](02-stage-1-prompt-context/README.md) — 3 门课 / 13 篇
+→ [进入阶段 1](02-stage-1-prompt-context/README.md) — 3 门课 / 14 篇
 
 - C6 System Prompt 工程与提示词模式（覆盖 1.1 五段式模板、1.2 少样本/思维链/自一致性）
 - C7 上下文管理与压缩（覆盖 1.4 窗口、裁剪、压缩、摘要）
@@ -381,3 +382,5 @@ v11 · 2026-10-22 更新：阶段 5、6 补全正文——阶段 5（C19–C23 �
 v12 · 2026-10-31 更新：① 阶段 2 的 C10 新增 **C10-4「操作型工具：computer use 与浏览器」**（原 C10-4 顺延为 C10-5），补上「操作界面」类工具的设计要点与四条安全底线；阶段 2 扩为 4 门课 / 19 篇，全课程共 **125 篇**。② 阶段 4 全 13 篇补厚（篇均 1265 → 2465 字符），补齐代码骨架、失败案例与验证动作。③ C22-1 增「推理预算（thinking）」一节、C17-2 增「厂商 SDK 分层」一节、C18-1 增「A2A 协议」一节。
 
 v13 · 2026-10-31 更新：阶段 1、3 全 27 篇补厚（阶段 1 篇均 1514 → 3143 字符，阶段 3 篇均 1488 → 3166 字符），补齐可运行代码、量化算账与失败案例：C6 增「约束可验证判据」「症状→病灶对照表」，C7 增「伤一次缓存值不值」的分摊计算与装配代码，C8 增四种真实载荷形态与攻击链拦截点，C13 增「tool_calls 成对」硬约束与压缩悬崖，C14 增 RRF 实现与 Recall/MRR/Precision 分工，C15 增状态转移校验与子 Agent 回传契约。各课程 README 与阶段页的篇目时长同步调整。
+
+v14 · 2026-10-31 更新：阶段 1 的 C6 新增 **C6-5「Prompt 版本管理与回归测试」**（原 C6-5 顺延为 C6-6），补上版本号判据与存放位置、回归集三类样例与三种判据、CI 硬门禁与软指标分工、灰度回滚与漂移监控，落实阶段 1 出口标准「带版本号」一条；阶段 1 扩为 3 门课 / 14 篇，全课程共 **126 篇**。同时统一 C6-1 与 C6-5 的版本号存放口径：变更史进 `meta.yaml`，运行时指纹拼在 prompt 末尾以不伤前缀缓存。

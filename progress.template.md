@@ -100,7 +100,8 @@
 - [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/02-constraints-over-persona.md`
 - [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/03-few-shot-cot-self-consistency.md`
 - [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/04-cot-pitfalls-and-pattern-library.md`
-- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-cheatsheet-and-quiz.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/05-prompt-versioning-and-regression.md`
+- [ ] `02-stage-1-prompt-context/00-c6-system-prompt-patterns/06-cheatsheet-and-quiz.md`
 
 ### C7 · 上下文管理与压缩 ⬜ 未开始
 

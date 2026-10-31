@@ -1,6 +1,6 @@
 # 大模型与 Agent 开发学习
 
-> 一套自学的 Agent 开发课程库，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 125 篇正文（另含 27 篇课程索引）。
+> 一套自学的 Agent 开发课程库，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 126 篇正文（另含 27 篇课程索引）。
 > 目标：**系统掌握 Agent 开发**；大模型理论只学「够用」的那一层。
 > 主场景：手机端通勤阅读，每篇 8–15 分钟。
 
@@ -30,7 +30,7 @@
 | `README.md` | 资料库使用约定、进度规则、更新规则 | 已完成 |
 | `00-curriculum-overview.md` | 学习路径总纲：课程地图、依赖关系、各阶段大纲 | 已完成 |
 | `01-stage-0-model-api/` | 阶段 0 · 模型调用与参数原理 | 已整理（6 门课 / 27 篇） |
-| `02-stage-1-prompt-context/` | 阶段 1 · Prompt 与上下文工程 | 已整理（3 门课 / 13 篇） |
+| `02-stage-1-prompt-context/` | 阶段 1 · Prompt 与上下文工程 | 已整理（3 门课 / 14 篇） |
 | `03-stage-2-minimal-agent-loop/` | 阶段 2 · Agent 最小闭环 | 已整理（4 门课 / 19 篇） |
 | `04-stage-3-memory-state/` | 阶段 3 · 记忆与状态 | 已整理（3 门课 / 15 篇） |
 | `05-stage-4-multi-agent-orchestration/` | 阶段 4 · 多 Agent 与编排 | 已整理（3 门课 / 13 篇） |
@@ -63,7 +63,7 @@
 
 | 目录 | 课程 | 篇数 |
 |---|---|---|
-| `00-c6-system-prompt-patterns/` | C6 · System Prompt 工程与提示词模式 | 5 |
+| `00-c6-system-prompt-patterns/` | C6 · System Prompt 工程与提示词模式 | 6 |
 | `01-c7-context-management/` | C7 · 上下文管理与压缩 | 4 |
 | `02-c8-prompt-security/` | C8 · 提示词安全与注入防御 | 4 |
 
