@@ -68,6 +68,23 @@ MCP 由 Anthropic 于 2024-11 发布，**2025-12 已捐给 Linux 基金会旗下
 - 三角色（Host/Client/Server）、两种传输（STDIO/HTTP）、三类能力（tools/resources/prompts）。
 - 已中立化，主流客户端原生支持。
 
+## 思考题
+
+> 先自己答，再展开参考思路。这三问不考记忆，考的是你能不能把它用在自己的项目上。
+
+1. N×M 集成问题具体指什么？MCP 把它降成 N+M 的机制是什么？
+2. MCP 与 function calling 是什么关系？说「MCP 替代 function calling」错在哪？
+3. tools / resources / prompts 三类能力，各对应什么使用场景？
+
+<details>
+<summary>参考思路</summary>
+
+1. N 个客户端要接 M 个工具就要写 N×M 份适配；有了统一协议，每个客户端实现一次、每个工具实现一次，变成 N+M。
+2. MCP 站在 function calling 之上：底层仍然是模型输出 tool_calls、你执行。MCP 标准化的是「工具从哪来、怎么发现、怎么调」，不是替代调用机制。
+3. tools 是可执行动作；resources 是可读的数据/文件（更像上下文注入）；prompts 是可复用的提示模板。
+
+</details>
+
 ## 下一篇
 
 C12-2 讲怎么用：把一个现成的 MCP server 接进你自己的 Agent，让它的工具变成你能调用的工具。

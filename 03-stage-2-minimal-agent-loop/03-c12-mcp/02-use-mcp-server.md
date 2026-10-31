@@ -83,6 +83,23 @@ async def execute(name, args):
 - MCP 工具与原生工具可混用，执行层统一分发。
 - 工具描述质量（C10）对 MCP 工具同样适用。
 
+## 思考题
+
+> 先自己答，再展开参考思路。这三问不考记忆，考的是你能不能把它用在自己的项目上。
+
+1. 把 MCP 工具接到模型上，四步是哪四步？哪一步最容易写错？
+2. 为什么 `name/description/inputSchema` 能近乎机械地转成 function calling？
+3. MCP 工具和原生工具混用时，执行层要做哪件事？
+
+<details>
+<summary>参考思路</summary>
+
+1. 连 server → list_tools → 转 function calling 定义 → call_tool 执行。最容易错在第四步：结果格式要包装成 `role=tool` 消息并用 tool_call_id 对齐。
+2. 因为两者描述的是同一件事：叫什么是 name、干什么用 description、参数什么形状用 JSON Schema。协议层只是换了个字段名。
+3. 按工具名做统一分发，屏蔽「这个工具来自 MCP 还是本地函数」的差异，上层循环不必关心来源。
+
+</details>
+
 ## 下一篇
 
 C12-3 反过来：怎么把自己的工具包成 MCP server，让别人（和所有主流 Agent 客户端）都能复用。
