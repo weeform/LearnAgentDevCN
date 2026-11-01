@@ -1,6 +1,6 @@
 # 大模型与 Agent 开发学习
 
-> 一套自学的 Agent 开发课程库，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 126 篇正文（另含 27 篇课程索引）。
+> 一套自学的 Agent 开发课程库，按 **阶段 → 课程 → 单篇** 三层组织。当前已整理阶段 0–6 共 128 篇正文（另含 27 篇课程索引）。
 > 目标：**系统掌握 Agent 开发**；大模型理论只学「够用」的那一层。
 > 主场景：手机端通勤阅读，每篇 8–15 分钟。
 
@@ -32,10 +32,10 @@
 | `00-curriculum-overview.md` | 学习路径总纲：课程地图、依赖关系与 MVP 路径、各阶段大纲 | 已完成 |
 | `01-stage-0-model-api/` | 阶段 0 · 模型调用与参数原理 | 已整理（6 门课 / 27 篇） |
 | `02-stage-1-prompt-context/` | 阶段 1 · Prompt 与上下文工程 | 已整理（3 门课 / 14 篇） |
-| `03-stage-2-minimal-agent-loop/` | 阶段 2 · Agent 最小闭环 | 已整理（4 门课 / 19 篇） |
+| `03-stage-2-minimal-agent-loop/` | 阶段 2 · Agent 最小闭环 | 已整理（4 门课 / 20 篇） |
 | `04-stage-3-memory-state/` | 阶段 3 · 记忆与状态 | 已整理（3 门课 / 15 篇） |
 | `05-stage-4-multi-agent-orchestration/` | 阶段 4 · 多 Agent 与编排 | 已整理（3 门课 / 13 篇） |
-| `06-stage-5-production-engineering/` | 阶段 5 · 工程化（观测 / 评测 / 成本 / 安全） | 已整理（5 门课 / 23 篇） |
+| `06-stage-5-production-engineering/` | 阶段 5 · 工程化（观测 / 评测 / 成本 / 安全） | 已整理（5 门课 / 24 篇） |
 | `07-stage-6-capstone/` | 阶段 6 · 实战项目 | 已整理（3 门课 / 15 篇） |
 | `08-review-course-health-check.md` | 全课程体检：必修缺口、应强化项、待拍板事项 | 已完成 |
 | `progress.template.md` | 进度看板**骨架模板**（入库共享） | 已完成 |
@@ -73,7 +73,7 @@
 | 目录 | 课程 | 篇数 |
 |---|---|---|
 | `00-c9-tool-calling-react/` | C9 · 工具调用协议与 ReAct 手写 | 5 |
-| `01-c10-tool-design/` | C10 · 工具设计：粒度、描述、参数校验与操作型工具 | 5 |
+| `01-c10-tool-design/` | C10 · 工具设计：粒度、描述、参数校验与操作型工具 | 6 |
 | `02-c11-agent-failure-recovery/` | C11 · Agent 失效模式与恢复 | 5 |
 | `03-c12-mcp/` | C12 · 工具生态：MCP 与能力复用 | 4 |
 
@@ -98,7 +98,7 @@
 | 目录 | 课程 | 篇数 |
 |---|---|---|
 | `00-c19-observability/` | C19 · 可观测性：trace 与日志规范 | 5 |
-| `01-c20-evaluation/` | C20 · 评测：评测集、LLM-as-judge、回归 | 5 |
+| `01-c20-evaluation/` | C20 · 评测：评测集、LLM-as-judge、回归 | 6 |
 | `02-c21-cost-engineering/` | C21 · 成本工程：预算、分级与告警 | 4 |
 | `03-c22-model-selection-routing/` | C22 · 模型选型与路由 | 4 |
 | `04-c23-security/` | C23 · 安全：权限、沙箱与人工确认 | 5 |

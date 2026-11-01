@@ -1,5 +1,5 @@
 # C9-3 · 手写 100 行 ReAct 循环
-> 阅读约 15 分钟，建议在电脑前跟着敲。目标：写出一个能跑、带终止条件与错误处理的最小 Agent。
+> 阅读约 18 分钟，建议在电脑前跟着敲。目标：写出一个能跑、带终止条件与错误处理的最小 Agent。
 
 ## 1. 完整代码
 
@@ -156,11 +156,50 @@ def safe_calc(expr: str):
 
 完整的 trace / span 体系留到阶段 5，但**现在就要养成记录每一步的习惯**——没有 trace，Agent 一旦跑偏你只能干瞪眼。
 
-## 5. 小结
+## 5. 这段代码怎么测
+
+循环写完，下一个问题是「怎么改它」——靠一次次真跑，每次几毛钱、结果还不稳定，很快就不敢动了。**Agent 代码要分三层测，越靠下的层越快越便宜**：
+
+| 层 | 测什么 | 要不要真模型 | 跑多久 |
+|---|---|---|---|
+| 纯函数 | 工具执行器、参数校验、终止判定、流式累加 | 不要 | 毫秒 |
+| **录制回放** | 循环逻辑：消息数组拼得对不对、在第几步停 | 不要（回放 fixture） | 毫秒 |
+| 端到端评测 | 答案质量、任务成功率 | 要（C20 的评测集） | 分钟 + 花钱 |
+
+中间这层最被忽略，也最划算。做法是**把一次真实调用录成 JSON，之后不再请求模型**：
+
+```python
+import json
+
+def replay(path):
+    # 把录好的响应按顺序吐出来，签名与 client.chat.completions.create 一致
+    responses = [json.loads(l) for l in open(path, encoding="utf-8")]
+    def _create(**kwargs):
+        return responses.pop(0)
+    return _create
+
+def test_loop_stops_on_final_answer():
+    fake = replay("fixtures/weather_two_tools.jsonl")
+    trace = run_agent("北京今天多少度", create=fake, tools=TOOLS)
+    assert trace[-1]["status"] == "done"    # 它停下来了
+    assert trace[-1]["reason"] == "stop"    # 而且是正常停，不是被步数掐断
+    assert len(trace) == 4                   # 2 次 llm + 2 次 tool，多一步少一步都是 bug
+```
+
+三个断言值得每个项目都写：
+
+1. **停在哪**：`reason` 是不是 `stop`——不是 `limit` / `budget`，否则说明循环没收敛。
+2. **拼得对不对**：`tool_call_id` 与 `tool` 消息一一对应，一条 `assistant` 的所有调用都有回填。
+3. **步数**：正常任务应该几步，写死一个数。多一步就是多花一轮钱。
+
+录制时有两件事必须记进 fixture：**模型名和温度**。换了模型还拿旧 fixture 回放，断言过了也只说明「循环逻辑没坏」，说明不了「换模型没变差」。
+
+## 6. 小结
 
 - 约 95 行：消息数组 + 工具定义 + 执行器 + 循环 + 终止条件。
 - 三个坑：eval 有注入风险（换 ast 受限求值）、报错要回传、采样走稳定档 + 限长。
 - 现在就开始记录每一步，别等阶段 5 补 trace。
+- 测试分三层：**纯函数 → 录制回放（不花钱）→ 端到端评测（花钱）**，中间这层决定你敢不敢改代码。
 
 ## 思考题
 

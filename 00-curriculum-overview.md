@@ -33,15 +33,15 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 - [阶段 0 · 模型调用与参数原理](01-stage-0-model-api/README.md) — 6 门课 / 27 篇
 - [阶段 1 · Prompt 与上下文工程](02-stage-1-prompt-context/README.md) — 3 门课 / 14 篇
-- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 19 篇
+- [阶段 2 · Agent 最小闭环](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 20 篇
 - [阶段 3 · 记忆与状态](04-stage-3-memory-state/README.md) — 3 门课 / 15 篇
 - [阶段 4 · 多 Agent 与编排](05-stage-4-multi-agent-orchestration/README.md) — 3 门课 / 13 篇
-- [阶段 5 · 工程化](06-stage-5-production-engineering/README.md) — 5 门课 / 23 篇
+- [阶段 5 · 工程化](06-stage-5-production-engineering/README.md) — 5 门课 / 24 篇
 - [阶段 6 · 实战项目](07-stage-6-capstone/README.md) — 3 门课 / 15 篇
 
 ## 4. 课程地图
 
-资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 14 篇）、阶段 2（4 门课 / 19 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 23 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
+资料库里所有内容按「阶段 → 课程 → 单篇」三层放，**课程不会直接铺在根目录，都挂在所属阶段文件夹下**。已整理：阶段 0（6 门课 / 27 篇）、阶段 1（3 门课 / 14 篇）、阶段 2（4 门课 / 20 篇）、阶段 3（3 门课 / 15 篇）、阶段 4（3 门课 / 13 篇）、阶段 5（5 门课 / 24 篇）、阶段 6（3 门课 / 15 篇），各含相应课程索引。
 
 **阶段 0 · 模型调用与参数原理**— 6 门课 / 27 篇 · 约 5–6 小时
 
@@ -117,7 +117,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C8-3 防御清单](02-stage-1-prompt-context/02-c8-prompt-security/03-defense-checklist.md)
 - [C8-4 速查与自测](02-stage-1-prompt-context/02-c8-prompt-security/04-cheatsheet-and-quiz.md)
 
-**阶段 2 · Agent 最小闭环**— 4 门课 / 19 篇 · 约 4–5 小时（含动手）
+**阶段 2 · Agent 最小闭环**— 4 门课 / 20 篇 · 约 4–5.5 小时（含动手）
 
 **C9 · 工具调用协议与 ReAct 手写**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/README.md)
 
@@ -127,13 +127,14 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C9-4 循环终止条件](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/04-loop-termination.md)
 - [C9-5 速查表与自测](03-stage-2-minimal-agent-loop/00-c9-tool-calling-react/05-cheatsheet-and-quiz.md)
 
-**C10 · 工具设计：粒度、描述、参数校验与操作型工具**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/01-c10-tool-design/README.md)
+**C10 · 工具设计：粒度、描述、参数校验与操作型工具**— 6 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/01-c10-tool-design/README.md)
 
 - [C10-1 工具粒度](03-stage-2-minimal-agent-loop/01-c10-tool-design/01-tool-granularity.md)
 - [C10-2 命名与描述](03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md)
 - [C10-3 参数校验](03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md)
 - [C10-4 操作型工具：computer use 与浏览器](03-stage-2-minimal-agent-loop/01-c10-tool-design/04-computer-use-and-browser.md)
-- [C10-5 设计清单与自测](03-stage-2-minimal-agent-loop/01-c10-tool-design/05-cheatsheet-and-quiz.md)
+- [C10-5 多模态输入：什么时候必须「看」](03-stage-2-minimal-agent-loop/01-c10-tool-design/05-multimodal-input.md)
+- [C10-6 设计清单与自测](03-stage-2-minimal-agent-loop/01-c10-tool-design/06-cheatsheet-and-quiz.md)
 
 **C11 · Agent 失效模式与恢复**— 5 篇 · 每篇 10–15 分钟 → [打开课程](03-stage-2-minimal-agent-loop/02-c11-agent-failure-recovery/README.md)
 
@@ -200,7 +201,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C18-3 避免传话游戏](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/03-avoid-telephone-game.md)
 - [C18-4 阶段 4 总复习与自测](05-stage-4-multi-agent-orchestration/02-c18-agent-communication/04-stage-4-review-and-quiz.md)
 
-**阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**— 5 门课 / 23 篇 · 约 5.5–7 小时
+**阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）**— 5 门课 / 24 篇 · 约 5.5–7.5 小时
 
 **C19 · 可观测性：trace 与日志规范**— 5 篇 · 每篇 12–18 分钟 → [打开课程](06-stage-5-production-engineering/00-c19-observability/README.md)
 
@@ -210,13 +211,14 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 - [C19-4 用现成工具落地](06-stage-5-production-engineering/00-c19-observability/04-tooling-otel-langsmith.md)
 - [C19-5 速查表与自测](06-stage-5-production-engineering/00-c19-observability/05-cheatsheet-and-quiz.md)
 
-**C20 · 评测：评测集、LLM-as-judge、回归**— 5 篇 · 每篇 12–15 分钟 → [打开课程](06-stage-5-production-engineering/01-c20-evaluation/README.md)
+**C20 · 评测：评测集、LLM-as-judge、回归**— 6 篇 · 每篇 12–15 分钟 → [打开课程](06-stage-5-production-engineering/01-c20-evaluation/README.md)
 
 - [C20-1 评测集怎么造](06-stage-5-production-engineering/01-c20-evaluation/01-building-eval-set.md)
 - [C20-2 LLM-as-judge 评分维度设计](06-stage-5-production-engineering/01-c20-evaluation/02-llm-as-judge-design.md)
 - [C20-3 judge 自带哪些偏差](06-stage-5-production-engineering/01-c20-evaluation/03-judge-bias.md)
 - [C20-4 评测接入 CI 与回归](06-stage-5-production-engineering/01-c20-evaluation/04-eval-in-ci-regression.md)
-- [C20-5 速查表与自测](06-stage-5-production-engineering/01-c20-evaluation/05-cheatsheet-and-quiz.md)
+- [C20-5 上线之后：在线质量监控与失败样本回流](06-stage-5-production-engineering/01-c20-evaluation/05-online-quality-and-data-flywheel.md)
+- [C20-6 速查表与自测](06-stage-5-production-engineering/01-c20-evaluation/06-cheatsheet-and-quiz.md)
 
 **C21 · 成本工程：预算、分级与告警**— 4 篇 · 每篇 12–14 分钟 → [打开课程](06-stage-5-production-engineering/02-c21-cost-engineering/README.md)
 
@@ -280,7 +282,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 5.2 MVP 路径：最短能用的 20 篇
 
-**126 篇不值得按顺序硬啃。** 如果你的目标是「尽快做出一个能给别人看的 Agent」，先走这条 20 篇的路线——约 5 小时（篇均 15 分钟），可分 4 个晚上。
+**128 篇不值得按顺序硬啃。** 如果你的目标是「尽快做出一个能给别人看的 Agent」，先走这条 20 篇的路线——约 5 小时（篇均 15 分钟），可分 4 个晚上。
 
 **毕业标准**（四条，都能当着别人面验证）：
 
@@ -389,7 +391,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 阶段 2 · Agent 最小闭环（已有正文）
 
-→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 19 篇
+→ [进入阶段 2](03-stage-2-minimal-agent-loop/README.md) — 4 门课 / 20 篇
 
 - C9 工具调用协议与 ReAct 手写（覆盖 2.1 协议细节、2.2 ReAct 循环）
 - C10 工具设计：粒度、描述与参数校验（覆盖 2.3）
@@ -414,7 +416,7 @@ Agent 的本质：**用代码反复调用大模型，并根据返回结果决定
 
 ### 阶段 5 · 工程化（已有正文）
 
-→ [进入阶段 5](06-stage-5-production-engineering/README.md) — 5 门课 / 23 篇
+→ [进入阶段 5](06-stage-5-production-engineering/README.md) — 5 门课 / 24 篇
 
 - C19 可观测性：trace 与日志规范（覆盖 5.1，建议提前到阶段 2）
 - C20 评测：评测集、LLM-as-judge、回归（覆盖 5.2）
@@ -484,3 +486,5 @@ v15 · 2026-10-31 更新：阶段 5 共 12 篇补厚（篇均 1943 → 2467 字�
 v16 · 2026-10-31 更新：**103 篇正文补「篇末思考题」**（每篇 3 问 + 折叠参考思路，放在「小结」与「下一篇」之间）——此前全库只有 23 篇课末「速查表 + 自测」，正文篇读完没有任何自检环节。这批思考题不考记忆，每问都要求把结论翻译成自己的场景（例如「改了前缀第一个字缓存会怎样」「为什么只能缓 K、V 不能缓 Q」），思路里带交叉引用到相关篇目。至此 126 篇 = 103 篇带思考题的正文 + 23 篇课末自测，全库 411,738 字符、篇均 3267。批量插入用 `scripts/add-thinking-questions.py`（幂等，新篇目可按 JSON 补题）。
 
 v17 · 2026-10-31 更新：第 5 节从「依赖关系」扩为「**依赖关系与 MVP 路径**」，补上体检报告挂了两轮的最后一项欠账（原表里「总纲显式标出 MVP 路径」长期为「仍未做」）。新增 5.2 节「最短能用的 20 篇」：七站（会调模型 2 / 写对指令 2 / 跑起循环 5 / 不崩不烧钱 4 / 出事能查 1 / 敢给人用 3 / 走通演示 3，共约 5 小时），每篇都写了「省掉会怎样」，附四条可当面验证的毕业标准与四晚排法；新增 5.3 节列出故意跳过的 12 组内容，并给出「什么现象出现时必须回来补」的触发信号，而不是时间表。选篇原则：MVP 只欠原理债、规模债、体验债三类，都能等被打脸时再还。
+
+v18 · 2026-11-01 更新（按体检报告第七节执行）：**结构层收口**，篇数 126 → **128**，全库 431,986 字符、篇均 3,374。① **阶段 2 补厚 7 篇**（C9-4、C9-5、C10-1、C10-3、C10-5、C11-1、C11-4），阶段篇均 2,551 → 3,095，从此不再有「最核心的阶段最薄」的问题；补入的内容是终止的假终止与预算型收口、停不下来的四种形态、工具数量 20–30 的坎、读写不同粒度、错误消息四要素、静默错误与污染扩散、以及一个能算的「该不该用 Agent」成本式。② **新增 C10-5「多模态输入」**（原 C10-5 速查顺延为 C10-6）：图片怎么计价、什么时候真的必须看、截图定位的四个误差源——补上 C10-4 computer use 缺的那半截。③ **新增 C20-5「上线之后：在线质量监控与失败样本回流」**（原 C20-5 顺延为 C20-6）：补上「离线评测」与「线上运维」之间的断点，含三个免费在线指标与评测集新陈代谢规则。④ **C9-3 增「这段代码怎么测」一节**：纯函数 / 录制回放 / 端到端评测三层，中间那层不花钱、可进 CI。⑤ 阶段 2 README 增「trace 的最小做法」6 字段表，出口标准不再指向阶段 5；C8-3 与 C23-1/C23-3、C7-3/C7-4 与 C13-2/C13-3 各加一句分工说明，消除「一段内容读两遍」的观感。

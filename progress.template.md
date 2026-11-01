@@ -137,7 +137,8 @@
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/02-tool-naming-description.md`
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/03-tool-param-validation.md`
 - [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/04-computer-use-and-browser.md`
-- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/05-cheatsheet-and-quiz.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/05-multimodal-input.md`
+- [ ] `03-stage-2-minimal-agent-loop/01-c10-tool-design/06-cheatsheet-and-quiz.md`
 
 ### C11 · Agent 失效模式与恢复 ⬜ 未开始
 
@@ -217,7 +218,7 @@
 ## 阶段 5 · 工程化（观测 / 评测 / 成本 / 安全）
 
 > 出口标准见 `06-stage-5-production-engineering/README.md`：全链路 trace + 回归评测集 + 成本看板 + 模型选型与路由策略。
-> 已知捷径：5.1 可观测性建议提前到阶段 2 一起做，不要等阶段 5。
+> 已知捷径：可观测性（C19-1 / C19-2）建议在阶段 2 就打最小 6 字段版，不要等阶段 5。
 
 ### C19 · 可观测性：trace 与日志规范 ⬜ 未开始
 
@@ -233,7 +234,8 @@
 - [ ] `06-stage-5-production-engineering/01-c20-evaluation/02-llm-as-judge-design.md`
 - [ ] `06-stage-5-production-engineering/01-c20-evaluation/03-judge-bias.md`
 - [ ] `06-stage-5-production-engineering/01-c20-evaluation/04-eval-in-ci-regression.md`
-- [ ] `06-stage-5-production-engineering/01-c20-evaluation/05-cheatsheet-and-quiz.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/05-online-quality-and-data-flywheel.md`
+- [ ] `06-stage-5-production-engineering/01-c20-evaluation/06-cheatsheet-and-quiz.md`
 
 ### C21 · 成本工程：预算、分级与告警 ⬜ 未开始
 
