@@ -125,7 +125,7 @@ def parse_citations(answer: str, hits: list[dict]) -> list[dict]:
 def answer(question: str) -> tuple[str, list[dict]]:
     hits = retrieve(question)
     resp = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-6-luna",
         messages=[{"role": "system", "content": SYSTEM},
                   {"role": "user", "content": build_prompt(question, hits)}],
         temperature=0, max_completion_tokens=2048,

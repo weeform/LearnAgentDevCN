@@ -46,8 +46,10 @@ task_cost = Σ 每一次 LLM 调用
 不引入库，用 C19 埋点攒下的 trace 直接算账：
 
 ```python
-PRICES = {  # 美元/百万 token，快照价，以官方定价页为准（见 C3-3）
-    "gpt-5-mini": {"in": 0.25, "cached": 0.025, "write": 0.31, "out": 2.00},
+PRICES = {  # 美元/百万 token，2026-11 快照，以官方定价页为准（见 C3-3）
+    "gpt-6-luna":  {"in": 0.10, "cached": 0.01,  "write": 0.125, "out": 0.50},
+    "gpt-6.1-sol": {"in": 2.00, "cached": 0.10,  "write": 2.50,  "out": 10.00},
+    "gpt-6-astra": {"in": 10.00, "cached": 1.00, "write": 12.50, "out": 50.00},
 }
 
 def task_cost(trace):

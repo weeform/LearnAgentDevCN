@@ -69,7 +69,7 @@ def judge(question, agent_result):
 
 ## 4. 成本结构：钱花在哪了
 
-一次任务的 token 账（以 gpt-4o-mini 级别计，示例）：
+一次任务的 token 账（以 GPT-6 Luna 这一档的价计，示例）：
 
 | 环节 | 调用次数 | 单次约 | 说明 |
 |---|---|---|---|

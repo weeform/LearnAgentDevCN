@@ -30,7 +30,7 @@ JUDGE_PROMPT = """你是评判员。判断下面答案里的每个事实性断�
 def judge_traceable(question, answer, cited_chunks) -> bool:
     # cited_chunks: 把 parse_citations 的 [n] 换成对应原文拼给 judge
     resp = client.chat.completions.create(
-        model="gpt-4o-mini", temperature=0,
+        model="gpt-6-luna", temperature=0,
         messages=[{"role": "user", "content": JUDGE_PROMPT +
                   f"\n问题:{question}\n答案:{answer}\n引用原文:{cited_chunks}"}],
     )

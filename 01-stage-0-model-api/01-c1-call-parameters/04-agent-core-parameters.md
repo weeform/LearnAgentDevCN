@@ -124,7 +124,7 @@ Claude 的写法是对象形式：`tool_choice={"type": "auto"}`，以及 `"any"
 | system 位置 | messages 里的 `role=system` | 顶层 `system` 字段 | messages 里 |
 | temperature 范围 | 0-2 | 0-1 | 0-2（各家略不同） |
 | top_k | 不支持 | 支持 | 部分支持 |
-| 采样参数注意 | 推理模型不支持 | Opus 4.7 及以上不支持 temperature / top_p / top_k | 各家自查 |
+| 采样参数注意 | 开思考时不支持 | 推理模型/思考档位下 temperature / top_p / top_k 会报 400 | 各家自查 |
 
 ## 7. 一个最小 Agent 循环（伪代码）
 

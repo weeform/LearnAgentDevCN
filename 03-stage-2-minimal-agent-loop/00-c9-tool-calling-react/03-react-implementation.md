@@ -69,7 +69,7 @@ def run_agent(user_input: str) -> str:
     ]
     for step in range(MAX_STEPS):
         resp = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-6-luna",
             messages=messages,
             tools=TOOLS,
             tool_choice="auto",

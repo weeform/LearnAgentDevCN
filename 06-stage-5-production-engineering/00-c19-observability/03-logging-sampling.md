@@ -7,7 +7,7 @@
 
 ```json
 {"ts":"2026-10-22T22:00:01Z","trace_id":"a1b2","span":"llm.call",
- "model":"gpt-4o-mini","tokens":{"in":1200,"out":80},"duration_ms":940,"status":"ok"}
+ "model":"gpt-6-luna","tokens":{"in":1200,"out":80},"duration_ms":940,"status":"ok"}
 ```
 
 三条基本规范：

@@ -107,7 +107,7 @@ from openai import OpenAI
 client = OpenAI()
 
 resp = client.chat.completions.create(
-    model="gpt-4o-mini",
+    model="gpt-6-luna",        # 换成你实际用的模型 id
     messages=[
         {"role": "system", "content": "你是助手。需要查数据时必须调用工具，不要编造。"},
         {"role": "user", "content": "北京今天天气怎么样"},
@@ -129,7 +129,8 @@ print(resp.usage)                  # 本次 token 消耗
 
 不要把参数当成「永远存在」。现实情况：
 
-- **推理 / 思考类模型**（如 o-series、GPT-5 系列、Claude Opus 4.7 及以上）不支持 `temperature`、`top_p`、`top_k` 等采样参数，传非默认值会直接报 400。改用 `reasoning_effort`（OpenAI）或 `thinking`（Claude）控制思考强度。
+- **推理 / 思考类模型，或开启了思考模式的调用**不支持 `temperature`、`top_p`、`top_k` 等采样参数，传非默认值会直接报 400。典型如 o-series、GPT-6 系列的 reasoning 档位（非 `none` 时）、Claude 开了 thinking 的调用。改用 `reasoning_effort` / `reasoning`（OpenAI）或 `thinking`（Claude）控制思考强度。
+  > 这条最容易踩，因为"同一个模型开不开思考"是两个不同的参数世界：关思考时 `temperature` 正常生效，一开就报错。**具体哪些模型、哪些档位支持，以各家官方文档为准**——这里记结论，别记名单。
 - `max_tokens` 已被 `max_completion_tokens` 取代（后者包含推理 token），旧字段在 o-series 上不兼容。
 - `top_k`、`repetition_penalty` 在 OpenAI 官方 Chat Completions API 中被忽略或不支持，但在 vLLM、Claude 等处可用。
 
