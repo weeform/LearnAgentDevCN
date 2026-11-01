@@ -53,7 +53,9 @@
 
 ## 6. 一个关键事实：MCP 已经中立化
 
-> 版本说明：本课以 MCP 当前稳定 SDK 与协议（2025-11 版）为准；Streamable HTTP 在 2026-07 的更新中去掉了会话握手（协议级无状态化），各语言 SDK 已做兼容，跟随 SDK 稳定版即可，不必纠结底层会话细节。
+> 版本说明：MCP 当前最新修订版是 **2026-07-28**（上一版 2025-11-25；2026-07-28 把 2025-11-25 及更早统称 legacy）。这一版的核心变化是**协议级无状态化**：去掉 Streamable HTTP 的会话与 `Mcp-Session-Id`、去掉 `initialize` / `notifications/initialized` 握手，版本与客户端能力改为每个请求带在 `_meta` 里，并新增 `server/discover` 让客户端先探版本。
+>
+> 对读本篇的影响只有一条：**跟随官方 SDK 稳定版即可**。SDK 同时兼容 legacy 与新代（dual-era）server，会自行选择握手方式；存量 server 绝大多数仍是 legacy，所以本篇示例保留了 `session.initialize()`，不必自己判断走哪一代。
 
 MCP 由 Anthropic 于 2024-11 发布，**2025-12 已捐给 Linux 基金会旗下的 Agentic AI Foundation**（联合创始方含 Anthropic、OpenAI、Block，AWS/Google/Microsoft 等均为成员）。这意味着它已从「某家的协议」变成**中立的基础设施标准**，OpenAI、Google Gemini、Microsoft Copilot、Cursor、VS Code 均原生支持。
 
