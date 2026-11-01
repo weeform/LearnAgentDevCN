@@ -3,7 +3,7 @@
 
 ## 1. 先划清边界：系统层 vs 单次调用层
 
-大纲 5.4 的「稳定性」分两层，容易混：
+原大纲 5.4 的「稳定性」分两层，容易混：
 
 - **单次调用层**：一次 LLM / 工具调用的超时、限流、重试、幂等——已在阶段 0 的 C5 完整覆盖。
 - **系统层**：一个任务跑 10 分钟、跨十几个工具时，怎么不崩、怎么续、怎么补偿——本篇讲的。
@@ -24,12 +24,21 @@
 
 ```python
 def send_sms(phone: str, text: str, idem_key: str):
-    if seen(idem_key):                  # 已处理过，直接返回
+    # 关键：先原子占位，再干活。不能「先查后做」。
+    if not claim(idem_key):             # 占位失败 = 别人已经在做/已经做完
         return cached_result(idem_key)
-    result = do_send(phone, text)
-    store(idem_key, result)
-    return result
+    try:
+        result = do_send(phone, text)
+        store(idem_key, result)         # 完成后把结果落进同一个 key
+        return result
+    except Exception:
+        release(idem_key)               # 失败必须释放，否则重试永远拿到「处理中」
+        raise
 ```
+
+`claim` 必须是**原子操作**：Redis 的 `SET key NX`、数据库的唯一索引 / `INSERT ... ON CONFLICT DO NOTHING`，都行。
+
+> 反直觉点：最容易写错的就是「先 `seen()` 查一下、没有就干活」。看着像幂等，其实是竞态——两个并发重试同时查询，都得到「没处理过」，于是短信发了两遍。**而重试恰恰经常是并发发生的**（超时重试 + 用户手动重试）。幂等键的全部价值就是把「查」和「占」压成一个原子动作。
 
 > 经验值：幂等键**只给有副作用的写操作**。纯读和纯计算天然幂等，加了是过度设计。
 

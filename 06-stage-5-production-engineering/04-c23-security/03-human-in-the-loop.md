@@ -70,11 +70,22 @@ def need_confirm(name: str, args: dict) -> dict:
 这不是假想——只要确认走「异步消息 + 回调」，时差必然存在。修法是**确认时冻结参数快照，执行前校验快照未变**：
 
 ```python
+import hashlib, json
+
+def hash_action(tool, args: dict) -> str:
+    # 必须用确定性哈希：内置 hash() 对 str 开了随机化（PYTHONHASHSEED），
+    # 同一个参数在另一个进程里算出来是不同的值。
+    name = getattr(tool, "__name__", repr(tool))
+    payload = json.dumps([name, args], sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(payload.encode()).hexdigest()
+
 def execute_after_confirm(approval, tool, args):
     if approval.action_hash != hash_action(tool, args):
         raise StaleApproval("参数已变，请重新确认")
     return tool(**args)
 ```
+
+> 这里有个埋得很深的坑：`hash_action` 一定不能用 Python 内置的 `hash()`。CPython 对字符串开了哈希随机化，同一个参数**换一个进程算出来的值就不一样**。而异步确认恰恰是「A 进程生成哈希、B 进程校验」——用内置 `hash()` 会让每一次合法确认都被判成「参数已变」，整个确认流程彻底卡死。用 `sha256` 这类确定性哈希，并对 `dict` 先做 `sort_keys` 排序。
 
 这条检查和 C15 的状态转移校验是同一个思路：**别相信「刚才检查过」，要在真正执行的那一刻再验一次。**
 

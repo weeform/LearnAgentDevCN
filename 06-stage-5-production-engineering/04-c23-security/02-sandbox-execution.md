@@ -59,17 +59,27 @@
 ```python
 import subprocess
 
-def run_in_sandbox(code: str, timeout: int = 10):
+def run_in_sandbox(code: str, timeout: int = 10) -> dict:
+    """三个出口都返回同一种结构，调用方只判 ok，不用猜类型。"""
     try:
         r = subprocess.run(
             ["docker", "run", "--rm", "--network", "none",
              "--memory", "256m", "--cpus", "1",
              "sandbox-python", "python", "-c", code],
             capture_output=True, timeout=timeout)
-        return r.stdout.decode()
+        return {"ok": r.returncode == 0,
+                "out": r.stdout.decode(),
+                "err": r.stderr.decode()}
     except subprocess.TimeoutExpired:
-        return {"error": "执行超时，已终止"}
+        return {"ok": False, "out": "", "err": "执行超时，已终止"}
+    except FileNotFoundError:
+        return {"ok": False, "out": "", "err": "沙箱镜像或 docker 不可用"}
 ```
+
+两个容易踩的点：
+
+1. **返回结构要统一**。别让成功路径返回字符串、超时路径返回字典——调用方一定有分支忘了判断类型，运行时抛 `TypeError`（C9-3 讲过同款坑：签名一变，照抄就崩）。
+2. **要看 `returncode`**。代码执行失败时 `stdout` 往往是空的，真正的错误在 `stderr` 里。只返回 `stdout` 会把「报错了」和「什么都没输出」混成一件事，排查时无从下手。
 
 > 教学示例，生产里建议用 Docker SDK 或现成沙箱服务，而不是手拼 `subprocess`。关键是理解四个限制维度一个都不能少。
 
