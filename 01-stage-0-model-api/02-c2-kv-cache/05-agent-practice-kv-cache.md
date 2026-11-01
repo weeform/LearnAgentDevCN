@@ -1,4 +1,7 @@
 # C2-5 · Agent 实战：如何利用 KV Cache
+
+> 阅读约 20 分钟。目标：把 KV Cache 落到 Agent 设计上：三条铁律、前缀缓存与命中率监控。
+
 > 前四篇讲清了「KV Cache 是什么、为什么能复用」。这一篇把它落地成 Agent 开发者可执行的手段。
 
 ## 1. 先统一概念：KV Cache vs Prompt Caching

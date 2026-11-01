@@ -1,4 +1,7 @@
 # C1-4 · Agent 核心参数：tools / tool_choice / response_format
+
+> 阅读约 25 分钟。目标：破除「模型会调用工具」的幻觉，掌握 tools / tool_choice / response_format 的真实含义。
+
 > 这一篇是整门课的落点，前三篇都是为它做铺垫。
 
 ## 1. 先破除幻觉：模型不会「调用」任何东西

@@ -38,6 +38,7 @@
 | `06-stage-5-production-engineering/` | 阶段 5 · 工程化（观测 / 评测 / 成本 / 安全） | 已整理（5 门课 / 24 篇） |
 | `07-stage-6-capstone/` | 阶段 6 · 实战项目 | 已整理（3 门课 / 15 篇） |
 | `08-review-course-health-check.md` | 全课程体检：必修缺口、应强化项、待拍板事项 | 已完成 |
+| `09-book-production-workflow.md` | 出版工作流：课程库 → 电子书 → 手册 → 纸书的全过程管理与状态约定 | 已建档（G1 未开工） |
 | `progress.template.md` | 进度看板**骨架模板**（入库共享） | 已完成 |
 | `progress.md` | 进度看板**本地副本**（gitignore，每人各自生成） | 本地生成 |
 | `scripts/init-progress.py` | 从模板生成本地 `progress.md` 的幂等脚本 | 已完成 |

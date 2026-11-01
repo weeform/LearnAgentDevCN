@@ -1,6 +1,8 @@
 # C2-1 · 为什么需要 KV Cache
-> 读之前
-> ：这一篇直接用到了 token、向量、注意力、prefill / decode 这些概念。如果它们对你还是黑箱，先读 [C0 · 大模型工作原理速成](../00-c0-llm-fundamentals/README.md)（约 50-60 分钟，尤其 [C0-5](../00-c0-llm-fundamentals/05-full-inference-pipeline.md)），再回来读这里。
+
+> 阅读约 11 分钟。目标：看清朴素实现的浪费具体在哪，理解 KV Cache 为什么必须存在。
+
+> **读之前**：这一篇直接用到了 token、向量、注意力、prefill / decode 这些概念。如果它们对你还是黑箱，先读 [C0 · 大模型工作原理速成](../00-c0-llm-fundamentals/README.md)（约 50-60 分钟，尤其 [C0-5](../00-c0-llm-fundamentals/05-full-inference-pipeline.md)），再回来读这里。
 
 ## 30 秒回顾（已读过 C0 可跳）
 

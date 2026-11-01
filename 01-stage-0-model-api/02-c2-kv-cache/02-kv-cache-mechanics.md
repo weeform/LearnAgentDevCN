@@ -1,9 +1,10 @@
 # C2-2 · KV Cache 原理：Q / K / V
 
+> 阅读约 12 分钟。目标：搞清为什么偏偏 K、V 能缓存，而 Q 不能。
+
 > 这一篇是整个 C2 的地基。看懂它，后面所有优化、所有厂商缓存行为都是顺理成章的推论。
 
-> 前置要求
-> ：这一篇开篇就用「隐藏表示」「投影」「权重矩阵」，并且假定你已经知道 Q / K / V 分别是什么。如果还不熟，请先读 [C0-3 Transformer 骨架](../00-c0-llm-fundamentals/03-transformer-block-anatomy.md) 和 [C0-4 注意力与 Q / K / V](../00-c0-llm-fundamentals/04-attention-qkv.md)。C0-4 是本篇的直接前置，读它之前看这里会十分吃力。
+> **前置要求**：这一篇开篇就用「隐藏表示」「投影」「权重矩阵」，并且假定你已经知道 Q / K / V 分别是什么。如果还不熟，请先读 [C0-3 Transformer 骨架](../00-c0-llm-fundamentals/03-transformer-block-anatomy.md) 和 [C0-4 注意力与 Q / K / V](../00-c0-llm-fundamentals/04-attention-qkv.md)。C0-4 是本篇的直接前置，读它之前看这里会十分吃力。
 
 ## 30 秒回顾：Q / K / V 分别是什么
 

@@ -1,6 +1,8 @@
 # C1-1 · 课程导览与参数全景图
-> 补充阅读
-> ：本篇第 ②③ 步直接用了“分词”“logits”“前向推理”，但没解释模型内部长什么样。如果你不确定 token 和 logits 是什么，建议先读 [C0-1 · 大模型到底在做什么](../00-c0-llm-fundamentals/01-what-llm-actually-does.md) 和 [C0-2 · Token 与向量](../00-c0-llm-fundamentals/02-token-and-vector.md)（合计约 20 分钟）；想拿完整底图再看 [C0-5 · 一次推理的完整流程](../00-c0-llm-fundamentals/05-full-inference-pipeline.md)。不读也能跟上本课，但会少一层“为什么”。
+
+> 阅读约 19 分钟。目标：建立「一次调用完整生命周期」的全景，知道参数分成哪几类。
+
+> **补充阅读**：本篇第 ②③ 步直接用了“分词”“logits”“前向推理”，但没解释模型内部长什么样。如果你不确定 token 和 logits 是什么，建议先读 [C0-1 · 大模型到底在做什么](../00-c0-llm-fundamentals/01-what-llm-actually-does.md) 和 [C0-2 · Token 与向量](../00-c0-llm-fundamentals/02-token-and-vector.md)（合计约 20 分钟）；想拿完整底图再看 [C0-5 · 一次推理的完整流程](../00-c0-llm-fundamentals/05-full-inference-pipeline.md)。不读也能跟上本课，但会少一层“为什么”。
 
 ## 1. 先建立一个正确的心智模型
 
