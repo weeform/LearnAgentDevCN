@@ -65,7 +65,7 @@ A2A 的四个核心概念，各解决一个痛点：
 
 1. **Agent Card** —— 能力名片（默认在 `/.well-known/agent-card.json`），声明我会什么、端点在哪个、怎么鉴权。解决「**怎么发现**对方能干什么」。
 2. **Task** —— 有状态的长任务对象，带生命周期（submitted → working → input-required → completed / failed / canceled）。解决「**长任务不能靠一次请求-响应**」——这就是 C15 的外部状态机，只是换成了协议标准。
-3. **Message / Part** —— 消息由若干 Part 组成：文本、文件、结构化数据。**DataPart 就是 JSON**，正好接上 C18-1 的结论：能结构化就别传自然语言。
+3. **Message / Part** —— 消息由若干 Part 组成：文本、文件、结构化数据。**DataPart 就是 JSON**，正好接上本篇第 3 节的结论：能结构化就别传自然语言。
 4. **流式与回调** —— SSE 推过程、push notification 通知完成。解决「**跑十分钟的任务，用户怎么知道进展**」。
 
 **什么时候用**：跨组织 / 跨厂商 / 跨框架，对方是独立部署的服务。
