@@ -28,15 +28,25 @@ pending → running → awaiting_approval → applying → done
 
 ```python
 ALLOWED = {
-    "pending": {"running"},
-    "running": {"awaiting_approval", "applying", "done", "failed", "failed_over_budget"},
+    "pending":           {"running"},
+    "running":           {"awaiting_approval", "applying", "done",
+                          "failed", "failed_over_budget", "rolled_back"},
     "awaiting_approval": {"applying", "rolled_back", "failed"},   # approve→applying；reject→rolled_back
-    "applying": {"done", "rolled_back", "failed"},
+    "applying":          {"running", "done", "rolled_back", "failed"},
+    "failed":            {"running"},      # 只有外部（人工/调度器）能拉起，自动循环不碰
 }
 def transition(state, to):
-    assert to in ALLOWED[state["status"]], f"非法迁移 {state['status']} -> {to}"
+    cur = state["status"]
+    assert to in ALLOWED.get(cur, set()), f"非法迁移 {cur} -> {to}"
     state["status"] = to
 ```
+
+> 两处容易漏的边：
+>
+> - **`failed` 要留一条回 `running` 的边**。`failed` 表示「这次跑挂了」，不等于「这个任务死了」——修完 bug 或换个参数重跑是正常操作。但如果真把它当终态，那句「可重试」就是空话，代码里根本重试不了。区别在于**谁触发**：自动循环绝不碰 `failed`，只有人（或调度器）显式 `retry` 才拉起。
+> - **`applying` 也要能回 `running`**。写库写完并不等于任务结束，后面还有出报告等步骤；写完回主流程继续走，而不是直接跳 `done`（详见 C26-3 的 `resume`）。
+>
+> 另外 `ALLOWED.get(cur, set())` 那个默认值不是洁癖：终态（`done` / `failed_over_budget` / `rolled_back`）压根不在字典的 key 里，直接 `ALLOWED[cur]` 抛出的是 `KeyError` 而不是一句干净的断言失败。
 
 ## 2. checkpoint：什么时候打点、存什么
 
@@ -68,12 +78,19 @@ checkpoint 是「完整状态快照」（见 C15-2 第 1 节）。本项目的�
 
 ```python
 def apply_batch(batch_id, rows):
-    if idempotency_seen(batch_id):      # 幂等键已存在 → 上次其实成功了
-        return "already_done"
-    mark_intent(batch_id)               # 先标记 intent（执行前）
+    st = idem_status(batch_id)          # None / "intent" / "done"
+    if st == "done":
+        return "already_done"           # 确实写完了
+    if st == "intent":
+        return "needs_reconcile"        # 开始了、结果未知：不能重写也不能当成功
+    idem_mark(batch_id, "intent")       # 执行前打 intent
     write_rows(rows)                    # 执行
-    mark_done(batch_id)                 # 标记 done
+    idem_mark(batch_id, "done")         # 标记 done
 ```
+
+> 注意这里**没有**把 `intent` 和 `done` 合并成一个「见过没有」的布尔值。合并了会得到一个很隐蔽的坑：上次 intent 之后进程挂了，重启时「键已存在」→ 直接跳过 → 那一批数据永远没写进去，还不报错。两态存着，才知道该跳过还是该交人工对账。
+>
+> 另外「先查后做」在**多进程并发**下仍有竞态（两个恢复进程同时查到「还没有」）。本课明确不做并发（C26-1 第 5 节），文件版的先查后做够用；真要并发，把 `idem_mark(..., "intent")` 换成原子的 `SET NX` / 唯一索引插入（见 C23-4 第 3 节）。
 
 **补偿**处理「执行到一半失败」：如果写库写了一半挂了，恢复时不能盲目重跑（会重复插入）。做法是：写库本身用「事务 + 幂等键」，要么全成要么全不成；已经写进去但后续步骤失败的，靠**回滚脚本**按幂等键精确删除该批，而不是回滚整个任务。
 

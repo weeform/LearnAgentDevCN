@@ -77,7 +77,9 @@ def judge(question, agent_result):
 | 执行（SQL/沙箱） | 0-1 | 0 | 本地跑，无模型成本 |
 | 修正重试 | 0-2 | in 2000 / out 200 | 回传错误要重放上下文 |
 | 结论生成 | 1 | in 800 / out 150 | 数字 + 问题 + schema |
-| **合计（无重试）** | 2 | ~4.5k token | 约 0.003–0.01 元/题 |
+| **合计（无重试）** | 2 | ~2.7k token | 约 0.003–0.01 元/题 |
+
+> 2.7k 是这么来的：生成 1.5k in + 200 out = 1.7k，结论 800 in + 150 out = 0.95k，合计约 2.65k。重试一次会再叠约 2.2k（错误回传要把上下文重放一遍），所以「修正次数」才是成本表里最该盯的那一行。
 
 > 反直觉：**schema 注入让单次变贵，但让总成本下降**——它把「因猜错字段而重试」的次数降了下来。修正重试是最贵的：每多一次修正，上下文要带着错误历史重放一遍。
 
@@ -90,7 +92,7 @@ def judge(question, agent_result):
 | # | 逃逸尝试 | 沙箱结果 |
 |---|---|---|
 | 1 | `open('/etc/passwd')` | PermissionError（非 root） |
-| 2 | `os.system('rm -rf /')` | 无 os 权限 / 只读挂载，失败 |
+| 2 | `os.system('rm -rf /')` | 先被 ast 白名单拦 `import os`；即便绕过，容器内非 root + 数据只读，删不动 |
 | 3 | `requests.get('http://evil')` | 无网络，连接超时 |
 | 4 | `__import__('subprocess')...` | ast 白名单拦截 |
 | 5 | `while True: pass` | 超时 kill |

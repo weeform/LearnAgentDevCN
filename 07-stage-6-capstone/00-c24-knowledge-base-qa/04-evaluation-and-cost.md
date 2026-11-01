@@ -34,10 +34,13 @@ def judge_traceable(question, answer, cited_chunks) -> bool:
         messages=[{"role": "user", "content": JUDGE_PROMPT +
                   f"\n问题:{question}\n答案:{answer}\n引用原文:{cited_chunks}"}],
     )
-    return "可溯源" in resp.choices[0].message.content
+    verdict = resp.choices[0].message.content.strip()
+    return verdict.startswith("可溯源")     # 注意：不能写 "可溯源" in verdict
 ```
 
 > 为什么引用正确性必须 judge，不能只靠正则数 `[n]`：模型完全可能「挂了编号但指错地方」。正则只能证明「有引用」，judge 才能证明「引用对」。
+
+> **务必留意的子串陷阱**：上面必须用 `startswith`，绝不能写 `"可溯源" in verdict`。因为「**不**可溯源」这四个字里就含着「可溯源」三个字——用 `in` 判断，所有被判为「不可溯源」的样本都会命中，**可溯源率会永远显示 100%**，而且报错都不报，你会带着一个完美分数交付一个坏系统。凡是「肯定词恰好是否定词的子串」（可溯源/不可溯源、合格/不合格、通过/不通过）都要避开 `in`：用 `startswith`，或先判否定词。
 
 **可溯源率 = 可溯源通过条数 / 40**，目标 ≥95%。
 
@@ -64,7 +67,7 @@ def eval_refusal(results):
 |---|---|---|---|
 | 1 | 问「快充技巧」召回一堆无关段落 | 纯向量检索漏掉「快充」关键词 | 上 BM25 混合检索，RRF 合并 |
 | 2 | 答对但引用指错 chunk | 切分把「退款 7 天」劈进两个相邻块 | 加大重叠，或按语义边界重切 |
-| 3 | 该拒答却编了一段 | rerank 最高分 0.2 仍进生成 | 阈值提到 0.3，低于直接拒答 |
+| 3 | 该拒答却编了一段 | rerank 归一化后最高分 0.2 仍进生成 | 阈值提到 0.3，低于直接拒答 |
 
 > 失败案例不是扣分项，是作品集里最值钱的部分——它证明你「知道为什么失败、怎么修」，比一句「效果很好」可信得多。
 

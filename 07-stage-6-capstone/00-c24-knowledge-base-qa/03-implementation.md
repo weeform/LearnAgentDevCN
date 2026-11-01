@@ -56,17 +56,22 @@ def embed(texts: list[str]) -> list[list[float]]:
     r = client.embeddings.create(model="text-embedding-3-small", input=texts)
     return [d.embedding for d in r.data]
 
-def index_documents(doc_path: str, doc_id: str):
+def index_documents(doc_path: str, doc_id: str, batch=64):
     chunks = split_by_structure(load_markdown(doc_path))
-    for i, c in enumerate(chunks):
+    # 批量 embed：一次请求带多个文本，比逐条调用快一个数量级、也少踩限流
+    for s in range(0, len(chunks), batch):
+        part = chunks[s:s + batch]
         collection.add(
-            ids=[f"{doc_id}:{i}"],               # 引用 id：从切分就埋进去
-            documents=[c],
-            embeddings=embed([c]),
-            metadatas=[{"doc": doc_id, "chunk": i, "source": doc_path}],
+            ids=[f"{doc_id}:{s+i}" for i in range(len(part))],   # 引用 id：从切分就埋进去
+            documents=part,
+            embeddings=embed(part),
+            metadatas=[{"doc": doc_id, "chunk": s + i, "source": doc_path}
+                       for i in range(len(part))],
         )
     print(f"indexed {len(chunks)} chunks from {doc_id}")
 ```
+
+> `ids` 里的序号要用 `s + i`（全局下标），不能只用批内的 `i`——否则每批都从 0 开始编，后几批会把前面的 id 覆盖掉，`collection.add` 直接报主键冲突。
 
 > `f"{doc_id}:{i}"` 就是 C24-2 说的「贯穿全链路的身份」。向量库里除了向量，还存了原文和来源路径——后面回链就靠 metadata。
 
@@ -154,14 +159,21 @@ def hybrid_retrieve(query, k=50):
 **加 rerank（只重排合并后的 top 50）：**
 
 ```python
+import torch
 from sentence_transformers import CrossEncoder
 reranker = CrossEncoder("BAAI/bge-reranker-base")   # 交叉编码器
 
 def rerank(query, candidates, top_k=6):
-    scores = reranker.predict([(query, c["text"]) for c in candidates])
+    pairs = [(query, c["text"]) for c in candidates]
+    # 关键：predict 默认返回原始 logits，必须过 sigmoid 归一化到 0~1
+    scores = reranker.predict(pairs, activation_fn=torch.nn.Sigmoid())
     ranked = sorted(zip(candidates, scores), key=lambda x: -x[1])
-    return [(c, s) for c, s in ranked[:top_k]]
+    return [(c, float(s)) for c, s in ranked[:top_k]]
 ```
+
+> **一个会让你前功尽弃的坑**：`CrossEncoder.predict()` 默认返回的是**原始 logits**，不是概率。`bge-reranker-base` 的 logit 大致落在 −11 到 11 之间——直接拿它跟 `0.3` 比，几乎永远「够格」，拒答逻辑等于没写。所以上面显式传了 `activation_fn=Sigmoid()`。
+>
+> 另一种做法是不归一化、直接把阈值按 logits 尺度重校准，但**这两种做法不能混**：一旦改了归一化方式，之前用评测集标定出来的阈值全部作废，必须重新标定。
 
 **加拒答兜底（rerank 最高分低于阈值直接拒答）：**
 

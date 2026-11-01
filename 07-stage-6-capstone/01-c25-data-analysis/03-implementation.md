@@ -41,7 +41,7 @@ def build_db(path="orders.db", seed=42):
     return conn
 ```
 
-约 2 万行、跨 11 个月，够出「趋势」和「异常」题了。
+约 2 万行；日期范围是 2026-01-01 往后 300 天（到 10 月底），跨 10 个自然月，够出「趋势」和「异常」题了。
 
 ## 3. 代码生成：schema 注入
 
@@ -61,7 +61,13 @@ SYSTEM_PROMPT = """你是数据分析助手。只做一件事：把用户的数�
 SQL 里的表和列必须严格按 schema，不要编造不存在的列。"""
 ```
 
-调用时把 `schema` 文本格式化进去，再把问题拼进 user 消息。为了让结果可解析，`temperature=0`，并要求纯 JSON 输出。
+注入 schema 时**千万不要用 `str.format()`**：这个 prompt 里本身就带着输出 JSON 的大括号（`{"sql": ...}`），`.format()` 会把它们当成格式占位符，直接抛 `KeyError: '"sql"'`。最省事的是：
+
+```python
+prompt = SYSTEM_PROMPT.replace("{SCHEMA}", schema_text)
+```
+
+或者把 JSON 那几对括号全转义成 `{{ }}`（难看但能用）。拼好 user 消息后，`temperature=0`，并要求纯 JSON 输出。
 
 ## 4. 执行层：SQL 直跑 + Python 沙箱
 
@@ -83,16 +89,20 @@ Python 侧分两档。**第一档（跑通用）**：先上一个「够用」的
 def run_python_bare(code: str, timeout=5) -> dict:
     # ⚠ 临时版：无沙箱，仅用于本地逻辑调试，切勿喂不可信输入
     import io, sys
+    buf = io.StringIO()
+    env = {"__builtins__": __builtins__}
     old_out = sys.stdout
-    sys.stdout = io.StringIO()
+    sys.stdout = buf
     try:
-        exec(code, {"__builtins__": __builtins__}, {})
-        return {"success": True, "stdout": sys.stdout.getvalue()}
+        exec(code, env, env)          # globals 和 locals 必须传同一个 dict
+        return {"success": True, "stdout": buf.getvalue()}
     except Exception as e:
         return {"success": False, "error": str(e)}
     finally:
         sys.stdout = old_out
 ```
+
+> `exec(code, env, env)` 里那个「传两次」不是啰嗦，是必须的。写成 `exec(code, env, {})`（globals 和 locals 分开）时，模块级语句把变量写进 locals，而**函数体、推导式、lambda 内部是按 globals 查名字的**——于是「先 `df = load()`、再 `def top(): return df.nlargest(...)`」这种最常见的两段式代码，一执行就 `NameError: name 'df' is not defined`，而代码本身完全正确。数据分析 Agent 生成的代码十有八九是这个形状，这个坑踩一次能耗掉半天。
 
 **第二档（加固）**：换成 Docker 沙箱。四道闸一起上：
 
@@ -130,40 +140,80 @@ C9-3 的 `ast` 白名单在这里是**第五道闸**（纵深防御）：进沙�
 把执行结果结构化回传（C11-2），修正上限独立记账：
 
 ```python
-MAX_CORRECTIONS = 2
-corrections = 0
-while corrections < MAX_CORRECTIONS:
-    plan = generate_code(question)          # 生成 {"sql","python","answer_value"}
-    result = execute(plan)                  # 跑 SQL 或沙箱 Python
-    if result["success"]:
-        break
-    messages.append(feedback(result))       # 回传 {error, hint}
-    corrections += 1
-if not result["success"]:
-    return {"success": False, "error": "多次修正仍失败"}
+MAX_CORRECTIONS = 2                        # 初次之外，最多再修 2 次
+
+def solve(question):
+    messages = [{"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": question}]
+    result = None
+    for _ in range(MAX_CORRECTIONS + 1):   # 1 次初跑 + 2 次修正
+        plan = generate_code(messages)     # 必须把 messages 传进去
+        result = execute(plan)             # 跑 SQL 或沙箱 Python
+        if result["success"]:
+            break
+        messages.append(feedback(result))  # 回传 {error, hint}
+    if not result or not result["success"]:
+        return {"success": False, "error": "多次修正仍失败"}
+    return result
 ```
+
+两个细节决定这段能不能真跑起来：
+
+1. **`range(MAX_CORRECTIONS + 1)`，不是 `range(MAX_CORRECTIONS)`**。`MAX_CORRECTIONS` 的语义是「允许修几次」，初跑不算一次修正。写成 `range(MAX_CORRECTIONS)` 就变成「总共只跑 2 次 = 只修了 1 次」，与 C25-2 说的「修正上限设 2」差一次。这类差一错误不会报错，只会让你的评测表悄悄少一截修正成功率。
+2. **`generate_code` 必须吃 `messages`**。原版是 `generate_code(question)`——那样 `messages.append(feedback(result))` 加进去的报错，模型**根本看不到**，回传机制形同虚设，每次都在重新生成同样的错代码。
 
 ## 6. 独立数值校验 + 结论
 
 校验用「另一条路复算」，再把数字交给结论生成：
 
 ```python
-def cross_check(plan, db="orders.db") -> bool:
-    # 若模型用 SQL 算，就用 golden SQL / 改写 SQL 复算；反之用 SQL 复算 Python
-    if plan["sql"]:
-        r = run_sql(plan["sql"])
-        expected = extract_scalar(r)          # 取第一行第一列
-    else:
-        expected = recompute_via_sql(plan)    # 按问题模板重写 SQL
-    claimed = plan["answer_value"]
-    return expected is not None and abs(claimed - expected) < max(1e-6, abs(expected) * 1e-4)
+def extract_scalar(r):
+    return r["rows"][0][0] if r.get("rows") else None
 
+def cross_check(plan, question, db="orders.db") -> dict:
+    """两条彼此独立的路：A = 模型自己算的，B = 另起一条实现算的。"""
+    if plan["sql"]:
+        own   = extract_scalar(run_sql(plan["sql"], db))       # 模型自己写的那段 SQL
+        other = recompute_independently(question, db)          # 独立重写一版 SQL（或 golden_sql）
+    else:
+        own   = plan["answer_value"]                           # 模型用 Python 算出来的数
+        other = extract_scalar(run_sql(rewrite_as_sql(question), db))  # 换 SQL 复算
+
+    if own is None or other is None:
+        return {"pass": False, "reason": "某一侧没有产出数字"}
+
+    ok = abs(own - other) < max(1e-6, abs(other) * 1e-4)       # 相对容差 0.01%
+    return {"pass": ok, "own": own, "other": other}
+```
+
+> 校验的容差要写死：浮点用相对误差 0.01%，整数必须完全相等。别用 `==` 直接比 float，那会让 90% 的题死在浮点尾巴上。
+
+**这段代码最容易被写错的地方，是把「重跑一遍」当成「校验」了**。它长这样：
+
+```python
+if plan["sql"]:
+    r = run_sql(plan["sql"])          # 把模型自己写的 SQL 再跑一遍
+    expected = extract_scalar(r)      # ← 这不是校验
+```
+
+然后拿 `expected` 跟 `answer_value` 比。看着很合理，其实**什么都没验**：SQL 是确定性的，同一段 SQL 跑两遍必然得到同一个数。它能抓到的只有一种错——「模型嘴上报的数字和它自己代码输出不一致」，也就是它心算错了。
+
+而「算错还很有信心」恰恰不是这一种。C25-4 案例 A 里，模型把环比写成了同比：那段 SQL 跑得又顺又漂亮，重跑一百遍还是那个错数，你拿它自己跟自己比，永远 PASS。
+
+所以要分清两级：
+
+| 级别 | 拿谁跟谁比 | 能抓到 | 成本 |
+|---|---|---|---|
+| 一致性检查 | `answer_value` vs 模型自己代码的输出 | 嘴上说的 ≠ 代码算的（心算错、抄错） | 几乎为零 |
+| **独立复算** | 模型的路 vs **另起一条路的**结果 | 代码逻辑本身就错（环比/同比、漏 where、排序取错） | 一次额外查询 |
+
+一致性检查值得做（便宜，能拦一类低级错），但它**不能替代独立复算**。真正定义「数值正确」的是第二行——那才是 C25-1 说的「用另一条路复算」。独立那条路的来源可以是：评测集里的 `golden_sql`、按题目模板重写的 SQL、或者让另一个模型在**看不到第一版 SQL** 的前提下独立写一遍。
+
+```python
 def generate_conclusion(question, claimed_value):
     # 只让它写结论，不让它重算
     ...
 ```
-
-> 校验的容差要写死：浮点用相对误差 0.01%，整数必须完全相等。别用 `==` 直接比 float，那会让 90% 的题死在浮点尾巴上。
 
 ## 7. 小结
 
